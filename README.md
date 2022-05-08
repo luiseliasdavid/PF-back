@@ -1,6 +1,6 @@
 # Awesome Profile Cards
 
-![Bug Busters Logo](/src/images/bug_busters_logo.png?raw=true "Bug Busters Logo")
+
 
 ## Bug-Busters 🦟🕳🔦
 
