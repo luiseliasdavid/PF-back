@@ -25,7 +25,7 @@ const {Sneakers} = require('./src/db.js');
 conn.sync({ force: true }).then(() => {
 Sneakers.findAll()
 .then (res => res.length === 0? Sneakers.bulkCreate(response.results):null)
-//Sneakers.bulkCreate(response.results)
+Sneakers.bulkCreate(response.results)
 
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console

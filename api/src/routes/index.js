@@ -4,8 +4,11 @@ const { Sneakers, colors } = require("../db");
 const { getApiInfo } = require('../bdInfo/controlers')
 
 
+
+
 const usersRoutes = require('./users')
 const sneakersRoutes = require('./sneakers')
+
 
 
 
