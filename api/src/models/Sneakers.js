@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
     grid_picture_url: {
       type: DataTypes.STRING,
     },
+    price:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   },
     {
       timestamps: false

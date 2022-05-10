@@ -2,6 +2,7 @@ const { Sneakers } = require('../db')
 
 
 const getData = async () => {
+    console.log('entando a getData')
     const data = await Sneakers.findAll();
     console.log(data)
     return data
@@ -37,6 +38,11 @@ module.exports = {
         } else {
             res.status(404).json({ msg: `Ups, the ID: ${id} is not found` })
         }
+    },
+
+    getSneakers: async (req, res)=>{
+        const data = await getData();
+        res.json(data)
     }
 
 
