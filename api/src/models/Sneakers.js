@@ -5,34 +5,26 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('sneakers', {
     // idSneaker: {
-    //   type: DataTypes.UUID, 
+    //   type: DataTypes.UUID,
     //   defaultValue: DataTypes.UUIDV4,
-    //   allowNull: false, 
+    //   allowNull: false,
     //   primaryKey: true
     // },
-    
     brand_name: {
       type: DataTypes.STRING,
-      
       unique: false
     },
     color: {
       type: DataTypes.STRING,
-      
     },
     details: {
       type: DataTypes.STRING,
-      
     },
     grid_picture_url: {
       type: DataTypes.STRING,
-     
     },
-  
-
   },
-  {
-    timestamps: false
-  });
+    {
+      timestamps: false
+    });
 };
-
