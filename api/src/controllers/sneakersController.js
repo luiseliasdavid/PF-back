@@ -31,10 +31,9 @@ module.exports = {
     SneakerDetail: async (req, res) => {
         const { id } = req.params
 
-        let data = Sneakers.findByPk(id)
-
+        let data = await Sneakers.findByPk(id)
         if (data) {
-            res.send(data)
+            res.json(data)
         } else {
             res.status(404).json({ msg: `Ups, the ID: ${id} is not found` })
         }
