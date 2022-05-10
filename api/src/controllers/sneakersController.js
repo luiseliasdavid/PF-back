@@ -1,4 +1,5 @@
 const { Sneakers } = require('../db')
+const { Op } = require('sequelize')
 
 
 const getData = async () => {
@@ -39,10 +40,40 @@ module.exports = {
         }
     },
 
-    getSneakers: async (req, res)=>{
-        const data = await getData();
-        res.json(data)
-    }
+    getSneakers: async (req, res) => {
+        const { name } = req.query
+
+        if (!name) {
+            const data = await getData();
+            res.json(data)
+        } else {
+            let sneaker = await Sneakers.findAll({
+                where: { name: { [Op.iLike]: `%${name}%` } }
+            })
+
+            sneaker.length
+                ? res.json(sneaker)
+                : res.status(404).json({ msg: `That product is not found` })
+        }
+    },
+
+    // orderingByRating: async (req, res) => {
+    //     const { order } = req.query
+    //     const data = await getData()
+
+    //     try {
+    //         if (order === 'asc') {
+    //             let newOrder = data.sort((a, b) => a.rating - b.rating)
+    //             res.send(newOrder)
+    //         } else {
+    //             let newOrder = data.sort((a, b) => b.rating - a.rating)
+    //             res.send(newOrder)
+    //         }
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+
+    // },
 
 
 
