@@ -5,12 +5,13 @@ const axios = require('axios')
 const respuesta = require('./respuesta.json')
 
 const getApiInfo= async() => {
-let res= Sneakers.findAll({
+let res= await Sneakers.findAll({
     include: [{
         model: Colors,
         as: 'colors'
     }]
 })
+console.log("estoy en el json",res)
 return res
     
 }
