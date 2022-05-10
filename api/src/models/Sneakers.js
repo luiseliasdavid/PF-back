@@ -4,35 +4,32 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('sneakers', {
-/*     id: {
+id: {
       type: DataTypes.INTEGER, 
       defaultValue: DataTypes.UUIDV4,
       allowNull: false, 
       primaryKey: true
-    }, */
-    
+    }, 
+   
     brand_name: {
       type: DataTypes.STRING,
-      
       unique: false
     },
     color: {
       type: DataTypes.STRING,
-      
     },
     details: {
       type: DataTypes.STRING,
-      
     },
     grid_picture_url: {
       type: DataTypes.STRING,
-     
     },
-  
-
+    price:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   },
-  {
-    timestamps: false
-  });
+    {
+      timestamps: false
+    });
 };
-

@@ -23,9 +23,9 @@ const response= require('./src/bdInfo/respuesta.json');
 const {Sneakers} = require('./src/db.js');
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-/* Sneakers.findAll()
-.then (res => res.length === 0? Sneakers.bulkCreate(response.results):null) */
-//Sneakers.bulkCreate(response.results)
+Sneakers.findAll()
+.then (res => res.length === 0? Sneakers.bulkCreate(response.results):null)
+Sneakers.bulkCreate(response.results)
 
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
