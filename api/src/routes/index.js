@@ -3,6 +3,8 @@ const { Sneakers, colors } = require("../db");
 
 const { getApiInfo } = require('../bdInfo/controlers')
 
+const { deletebdInfo } = require('../bdInfo/deleteController')
+
 
 
 
@@ -27,3 +29,61 @@ router.use('/sneakers', sneakersRoutes);
 
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.delete("/sneakers/delete/:id",async (req, res, next) => {
+  const idSneaker= req.params.id
+  //console.log("id de params ruta delete", idSneaker)
+try {
+  let resultado= await deletebdInfo(idSneaker)
+if(resultado)  
+res.status(200).send("Sneaker deleted")
+  else res.status(400).send("we have a problem in deleted route")
+} catch (error) {
+  //console.log("We have a problem in Delete Route")
+}
+
+});
