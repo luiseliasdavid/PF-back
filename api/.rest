@@ -1,1 +1,13 @@
 http://localhost:3001/sneakers
+
+###
+
+http://localhost:3001/users/create/review/3
+Content-Type: application/json
+
+{
+ "reviewText": "nice",
+ "rating": 3,
+ "idUser": 
+
+}

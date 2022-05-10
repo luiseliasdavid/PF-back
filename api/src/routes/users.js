@@ -6,8 +6,8 @@ var router = express.Router();
 
 const controllers = require('../controllers/userController')
 
-router.post('/create', controllers.CreateUser)
-router.get('/h', controllers.getUser)
+router.post('/create/user', controllers.CreateUser)
+router.post('/create/review/:id', controllers.postReview)
 
 
 module.exports = router;

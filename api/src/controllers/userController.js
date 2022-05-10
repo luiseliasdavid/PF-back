@@ -1,19 +1,19 @@
-const { Users } = require('../db')
+const { Users, Reviews } = require('../db')
 
 
 module.exports = {
   CreateUser: async (req, res) => {
 
     const { name, lastName, dateOfBirth, email, password } = req.body
-    console.log(name)
+
     if (name && lastName && dateOfBirth && email && password) {
       try {
         let newUser = await Users.create({
-          name:name,
+          name: name,
           lastName: lastName,
           dateOfBirth: dateOfBirth,
           email: email,
-          password:password
+          password: password
         })
         res.status(201).json({ msg: `The user ${newUser.name} has been created successfully`, user: newUser })
       } catch (error) {
@@ -23,7 +23,25 @@ module.exports = {
     }
 
   },
-  getUser: (req, res)=>{
-    res.status(201).json({ msg: `hello`})
-  }
+
+  postReview: (req, res) => {
+    const { idUser, reviewText, rating } = req.body
+
+    if (idUser && idSneaker && reviewText && rating) {
+      try {
+        Reviews.create({
+          reviewText,
+          rating,
+          idUser,
+          idSneaker: req.params.idSneaker
+        }).then(review => { res.json(review); }).catch(error => { res.status(400).json({ error }) });
+
+      } catch (error) {
+        console.log(error)
+        res.status(404).json({ msg: `Ups, something went wrong ` })
+      }
+    }
+
+  },
+
 }
