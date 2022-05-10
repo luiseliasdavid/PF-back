@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { Sneakers, colors } = require("../db");
 
-const {getApiInfo} = require("../bdInfo/bdInfo");
+const { getApiInfo } = require('../bdInfo/controlers')
 
 const router = Router();
 
