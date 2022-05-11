@@ -26,7 +26,7 @@ module.exports = {
 
   postReview: (req, res) => {
     const { idUser, reviewText, rating } = req.body
-    
+
     if (idUser && reviewText && rating) {
       try {
         Reviews.create({
