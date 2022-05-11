@@ -44,4 +44,19 @@ module.exports = {
 
   },
 
+  updateUser: (req, res) => {
+    const { id } = req.params
+    const changes = req.body
+
+    try {
+      const user = await Users.findOne({
+        where: { id: id }
+      })
+      const userUpdate = await user.update(changes)
+      res.json(userUpdate)
+    } catch (error) {
+      res.status(404).send(error)
+    }
+  }
+
 }
