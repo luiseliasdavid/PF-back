@@ -27,6 +27,14 @@ id: {
     price:{
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    Model: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    Size: {
+        type: DataTypes.ARRAY(DataTypes.FLOAT),
+        allowNull: false,
     }
   },
     {
