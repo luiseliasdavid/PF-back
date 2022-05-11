@@ -37,6 +37,12 @@ const { Sneakers, Colors, Users, Brand, Products, Reviews, Category } = sequeliz
 Sneakers.belongsToMany(Colors, { through: 'Sneakers-Colors' });
 Colors.belongsToMany(Sneakers, { through: 'Sneakers-Colors' });
 
+Sneakers.belongsTo(Brand);
+Brand.hasMany(Sneakers);
+Sneakers.belongsToMany(Category, { through: 'Sneakers-Category' });
+Category.belongsToMany(Sneakers, { through: 'Sneakers-Category' });
+
+
 // Users.hasMany(Reviews, { through: 'Users-Reviews' })
 // Reviews.belongsTo(Users, { through: 'Users-Reviews' })
 
