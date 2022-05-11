@@ -10,7 +10,6 @@ const { getApiInfo } = require('../bdInfo/controlers')
 const usersRoutes = require('./users')
 const sneakersRoutes = require('./sneakers')
 const cartProducts = require('./cartProducts')
-
 const adminActions = require('./Admin/adminActions')
 
 

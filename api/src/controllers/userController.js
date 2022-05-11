@@ -26,14 +26,14 @@ module.exports = {
 
   postReview: (req, res) => {
     const { idUser, reviewText, rating } = req.body
-
-    if (idUser && idSneaker && reviewText && rating) {
+    
+    if (idUser && reviewText && rating) {
       try {
         Reviews.create({
           reviewText,
           rating,
           idUser,
-          idSneaker: req.params.idSneaker
+          idSneaker: req.params.id
         }).then(review => { res.json(review); }).catch(error => { res.status(400).json({ error }) });
 
       } catch (error) {
