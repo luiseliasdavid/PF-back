@@ -22,12 +22,8 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    model: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    size: {
-      type: DataTypes.ARRAY(DataTypes.FLOAT),
+    sizes: {
+      type: DataTypes.ARRAY(DataTypes.JSONB),
       allowNull: false,
     },
     name: {
