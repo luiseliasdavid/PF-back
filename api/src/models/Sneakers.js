@@ -22,6 +22,14 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    model: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    size: {
+      type: DataTypes.ARRAY(DataTypes.FLOAT),
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false

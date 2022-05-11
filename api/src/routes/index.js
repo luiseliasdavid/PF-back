@@ -11,7 +11,7 @@ const usersRoutes = require('./users')
 const sneakersRoutes = require('./sneakers')
 const cartProducts = require('./cartProducts')
 const adminActions = require('./Admin/adminActions')
-
+const filtersRoute = require('./filters')
 
 
 
@@ -28,6 +28,8 @@ router.use('/users', usersRoutes);
 router.use('/sneakers', sneakersRoutes);
 router.use('/cartProducts', cartProducts)
 router.use('/admin', adminActions)
+router.use('/filters', filtersRoute)
+
 
 
 
