@@ -37,8 +37,14 @@ const { Sneakers, Colors, Users, Brand, Products, Reviews, Category, Cart } = se
 Sneakers.belongsToMany(Colors, { through: 'Sneakers-Colors' });
 Colors.belongsToMany(Sneakers, { through: 'Sneakers-Colors' });
 
-Sneakers.belongsTo(Brand);
-Brand.hasMany(Sneakers);
+Brand.hasMany(Sneakers, {foreignKey: 'brand_name', constraints: false});
+Sneakers.belongsTo(Brand,{foreignKey: 'brand_name', constraints: false});
+
+
+// Brand.hasMany(Sneakers, {foreignKey: 'brandName', targetId: 'name'});
+// Sneakers.belongsTo(Brand, {foreignKey: 'brandName', sourcekey: 'brand_name'});
+
+
 Sneakers.belongsToMany(Category, { through: 'Sneakers-Category' });
 Category.belongsToMany(Sneakers, { through: 'Sneakers-Category' });
 

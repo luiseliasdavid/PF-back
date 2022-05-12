@@ -15,12 +15,12 @@ module.exports = {
 			// Sino existen brands en BD se cargan algunas por defecto
 			if (!brands.length) {
 				const brands = await Brand.bulkCreate([
-					{ name: 'nike' },
-					{ name: 'adidas' },
-					{ name: 'air jordan' },
-					{ name: 'converse' },
-					{ name: 'vans' }, 
-					{ name: 'champion' },
+					{ name: 'Nike' },
+					{ name: 'Adidas' },
+					{ name: 'Air jordan' },
+					{ name: 'Converse' },
+					{ name: 'Vans' }, 
+					{ name: 'Champion' },
 				]);
 				res.send(brands);
 			}
