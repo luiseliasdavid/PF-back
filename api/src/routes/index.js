@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const { Sneakers, colors } = require('../db');
 
 const { getApiInfo } = require('../bdInfo/controlers');
 
@@ -26,16 +25,14 @@ router.use('/cartProducts', cartProducts);
 router.use('/admin', adminActions);
 router.use('/filters', filtersRoute);
 
-
-
 router.get('/brands', brandController.getBrands);
 router.get('/categories', categoryController.getCategories);
 
 router.delete('/sneakers/delete/:id', async (req, res, next) => {
-  const idSneaker = req.params.id;
+	const idSneaker = req.params.id;
 	//console.log("id de params ruta delete", idSneaker)
 	try {
-    let resultado = await deletebdInfo(idSneaker);
+		let resultado = await deletebdInfo(idSneaker);
 		if (resultado) res.status(200).send('Sneaker deleted');
 		else res.status(400).send('we have a problem in deleted route');
 	} catch (error) {
