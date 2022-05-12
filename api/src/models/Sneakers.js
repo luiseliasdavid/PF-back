@@ -27,6 +27,11 @@ module.exports = (sequelize) => {
 				type: DataTypes.ARRAY(DataTypes.JSONB),
 				allowNull: false,
 			},
+			brand_name: {
+				type: DataTypes.STRING,
+				
+
+			}
 		},
 		{
 			timestamps: false,
