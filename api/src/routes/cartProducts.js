@@ -6,7 +6,8 @@ var router = express.Router();
 
 const controllers = require('../controllers/productsCartController')
 
-router.post('/', controllers.AddProduct);
-router.get('/:id', controllers.GetProducts);
+router.post('/add', controllers.AddCartProduct);
+router.get('/get/:id', controllers.GetCartProducts);
+router.delete('/delete/:id', controllers.DeleteCartProduct);
 
 module.exports = router;
