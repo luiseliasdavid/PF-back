@@ -7,7 +7,7 @@ const router = Router();
 module.exports = {
 	// Ruta que filtra del modelo Sneakers por brand e incluye el modelo Brand
 	// La relacion entre Sneakers y Category es de muchos a muchos.
-	// localhost:3000/sneakers/filters/brand?brand=nike
+	// localhost:3000/filters/brand?brand=nike
 	filterByBrand: async (req, res) => {
 		const { brand } = req.query;
 		try {

@@ -6,9 +6,16 @@ module.exports = (sequelize) => {
 	sequelize.define(
 		'brand',
 		{
+			id: {
+				type: DataTypes.UUID,
+				allowNull: false,
+				defaultValue: DataTypes.UUIDV4,
+			},
 			name: {
+				
 				type: DataTypes.STRING,
 				allowNull: false,
+				primaryKey: true,
 			},
 		},
 		{
