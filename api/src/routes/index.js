@@ -39,4 +39,12 @@ router.get("/sneakers", async (req, res) => {
 
 });
 
+router.get("/sneakersAll", async (req, res) => {
+    const sneaker = await Sneaker.findAll({
+        attributes: { exclude: ['colorId', 'sizeId', 'modelId'] },
+        include: { all: true, nested: true }
+    });
+    res.send(sneaker);
+})
+
 module.exports = router;
