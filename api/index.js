@@ -18,28 +18,85 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
-const { conn, Sneaker, Color, Size, ModelShoe, Brand, Material, Category } = require('./src/db.js');
-
+const { conn, Sneaker, Color, Size, Model, Brand, Material, Category } = require('./src/db.js');
+const data = require('./data.json');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
-	// Create a new user
-	// await Color.create({ nameColor: "red" });
-	// await Color.create({ nameColor: "black" });
-	// await Size.create({ numberSize: 43.5 });
-	// await Size.create({ numberSize: 45.5 });
-	// await Brand.create({ nameBrand: "Nike" });
-	// await Brand.create({ nameBrand: "Jordan" });
-	// await Material.create({ nameMaterial: "sintetic" });
-	// await Material.create({ nameMaterial: "cloth" });
-	// await Category.create({ nameCategory: "running" });
-	// const categoria = await Category.create({ nameCategory: "soccer" });
+	//!Llenando base de datos, con el archivo data.json.
+	//!Llenando tabla categorías.
+	data.forEach(obj => {
+		obj.category.forEach(async (objCat) => {
+			const [cat, created] = await Category.findOrCreate({
+				where: { nameCategory: objCat }
+			});
+		})
+	});
 
-	// await ModelShoe.create({ nameModel: "Mercurial", description: "Shoes to play soccer", brandId: 1, materialId: 1 });
-	// const modelo = await ModelShoe.create({ nameModel: "Air Jordan", description: "Shoes to play bascketball", brandId: 2, materialId: 2 });
-	// await modelo.addCategory(categoria);
+	//!Llenndo tabla brand
+	data.forEach(async (obj) => {
+		const [brand, created] = await Brand.findOrCreate({
+			where: { nameBrand: obj.brand }
+		})
+	});
 
-	await Sneaker.create({ stock: 15, price: 250, image: "adsdsad", colorId: 1, sizeId: 1, modelShoeId: 2 })
+	//!Llenndo tabla material
+	data.forEach(async (obj) => {
+		const [material, created] = await Material.findOrCreate({
+			where: { nameMaterial: obj.material }
+		})
+	});
+
+	//!Llenndo tabla  model
+	data.forEach(async (obj) => {
+		const brand = await Brand.findOne({
+			where: { nameBrand: obj.brand }
+		});
+		const material = await Material.findOne({
+			where: { nameMaterial: obj.material }
+		});
+		const mat = material.toJSON();
+		const bra = brand.toJSON();
+		const model = await Model.create({ nameModel: obj.model, description: obj.description, brandId: bra.id, materialId: mat.id });
+		obj.category.forEach(async (objCat) => {
+			const [cat, created] = await Category.findOrCreate({
+				where: { nameCategory: objCat }
+			});
+			await model.addCategory(cat);
+		})
+	});
+
+	//!Llenando tabla color
+	data.forEach(async (obj) => {
+		const [color, created] = await Color.findOrCreate({
+			where: { nameColor: obj.color }
+		})
+	});
+
+	//!Llenndo tabla size
+	data.forEach(async (obj) => {
+		const [size, created] = await Size.findOrCreate({
+			where: { numberSize: obj.size }
+		})
+	});
+
+	//!Llenndo tabla Sneaker
+	data.forEach(async (obj) => {
+		const color = await Color.findOne({
+			where: { nameColor: obj.color }
+		});
+		const size = await Size.findOne({
+			where: { numberSize: obj.size }
+		});
+		const model = await Model.findOne({
+			where: { nameModel: obj.model }
+		});
+		const col = color.toJSON();
+		const siz = size.toJSON();
+		const mod = model.toJSON();
+		await Sneaker.create({ stock: obj.stock, price: obj.price, image: obj.image, colorId: col.id, sizeId: siz.id, modelId: mod.id })
+	});
+
 	server.listen(3001, () => {
 		console.log('%s listening at 3001'); // eslint-disable-line no-console
 	});

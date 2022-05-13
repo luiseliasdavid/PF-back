@@ -29,29 +29,27 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 
 sequelize.models = Object.fromEntries(capsEntries);
-console.log(sequelize.models);
 
-const { Sneaker, Size, Color, ModelShoe, Material, Brand, Category } = sequelize.models;
+const { Sneaker, Size, Color, Model, Material, Brand, Category } = sequelize.models;
 
-// Color.hasOne(Sneaker);
-//Sneaker a color
+//!Sneaker a color
 Sneaker.belongsTo(Color);
 Color.hasMany(Sneaker);
-//Sneaker a talla
+//!Sneaker a talla
 Sneaker.belongsTo(Size);
 Size.hasMany(Sneaker);
-//Modelo a marca
-ModelShoe.belongsTo(Brand);
-Brand.hasMany(ModelShoe);
-//Modelo a material
-ModelShoe.belongsTo(Material);
-Material.hasMany(ModelShoe);
-//Sneaker a modelo
-Sneaker.belongsTo(ModelShoe);
-ModelShoe.hasMany(Sneaker);
-//Modelo a categorias(m:n)
-ModelShoe.belongsToMany(Category, { through: "model_category", timestamps: false });
-Category.belongsToMany(ModelShoe, { through: "model_category", timestamps: false });
+//!Modelo a marca
+Model.belongsTo(Brand);
+Brand.hasMany(Model);
+//!Modelo a material
+Model.belongsTo(Material);
+Material.hasMany(Model);
+//!Sneaker a modelo
+Sneaker.belongsTo(Model);
+Model.hasMany(Sneaker);
+//!Modelo a categorias(m:n)
+Model.belongsToMany(Category, { through: "model_category", timestamps: false });
+Category.belongsToMany(Model, { through: "model_category", timestamps: false });
 
 module.exports = {
   ...sequelize.models,

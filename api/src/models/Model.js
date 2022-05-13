@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('modelShoe', {
+    sequelize.define('model', {
         // Model attributes are defined here
         nameModel: {
             type: DataTypes.STRING,
