@@ -18,29 +18,29 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-const response= require('./src/bdInfo/respuesta.json'); 
-const {Sneakers, Brand} = require('./src/db.js');
+const { conn, Sneaker, Color, Size, ModelShoe, Brand, Material, Category } = require('./src/db.js');
+
+
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: true }).then(async () => {
+	// Create a new user
+	// await Color.create({ nameColor: "red" });
+	// await Color.create({ nameColor: "black" });
+	// await Size.create({ numberSize: 43.5 });
+	// await Size.create({ numberSize: 45.5 });
+	// await Brand.create({ nameBrand: "Nike" });
+	// await Brand.create({ nameBrand: "Jordan" });
+	// await Material.create({ nameMaterial: "sintetic" });
+	// await Material.create({ nameMaterial: "cloth" });
+	// await Category.create({ nameCategory: "running" });
+	// const categoria = await Category.create({ nameCategory: "soccer" });
 
+	// await ModelShoe.create({ nameModel: "Mercurial", description: "Shoes to play soccer", brandId: 1, materialId: 1 });
+	// const modelo = await ModelShoe.create({ nameModel: "Air Jordan", description: "Shoes to play bascketball", brandId: 2, materialId: 2 });
+	// await modelo.addCategory(categoria);
 
-Brand.findAll()
-.then (res => res.length === 0? Brand.bulkCreate([
-					{ name: 'Nike' },
-					{ name: 'Adidas' },
-					{ name: 'Air jordan' },
-					{ name: 'Converse' },
-					{ name: 'Vans' }, 
-					{ name: 'Champion' },
-				]):null)
-
-
-Sneakers.findAll()
-.then (res => res.length === 0? Sneakers.bulkCreate(response.results):null)
-Sneakers.bulkCreate(response.results)
-
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
+	await Sneaker.create({ stock: 15, price: 250, image: "adsdsad", colorId: 1, sizeId: 1, modelShoeId: 2 })
+	server.listen(3001, () => {
+		console.log('%s listening at 3001'); // eslint-disable-line no-console
+	});
 });

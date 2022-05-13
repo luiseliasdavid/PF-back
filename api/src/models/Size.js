@@ -1,10 +1,10 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('brand', {
+    sequelize.define('size', {
         // Model attributes are defined here
-        nameBrand: {
-            type: DataTypes.STRING,
+        numberSize: {
+            type: DataTypes.FLOAT,
             allowNull: false
         }
     }, {

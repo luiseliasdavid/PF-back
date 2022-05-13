@@ -1,13 +1,23 @@
+
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('brand', {
+    sequelize.define('sneaker', {
         // Model attributes are defined here
-        nameBrand: {
+        stock: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        price: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
+        image: {
             type: DataTypes.STRING,
             allowNull: false
         }
     }, {
         timestamps: false
     });
+
 }

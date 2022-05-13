@@ -1,43 +1,21 @@
-const { Router } = require('express');
-
-const { getApiInfo } = require('../bdInfo/controlers');
-
-const usersRoutes = require('./users');
-const sneakersRoutes = require('./sneakers');
-const cartProducts = require('./cartProducts');
-const adminActions = require('./Admin/adminActions');
-const filtersRoute = require('./filters');
-
-const brandController = require('../controllers/brandController');
-const categoryController = require('../controllers/categoryController');
-
+const { Router } = require("express");
+const { Sneaker, Color, Size, ModelShoe, Material, Brand } = require("../db.js");
 const router = Router();
+router.get("/sneakers", async (req, res) => {
+    const sneaker = await Sneaker.findAll({
+        // attributes: { exclude: ['colorId', 'sizeId', 'modelShoeId'] },
+        include: { all: true, nested: true }
 
-// router.get("/sneakers", async (req, res, next) => {
-//   const name = req.query.name;
-//   const allData = await getApiInfo();
-//  return res.json(allData);
-// });
-
-router.use('/users', usersRoutes);
-router.use('/sneakers', sneakersRoutes);
-router.use('/cartProducts', cartProducts);
-router.use('/admin', adminActions);
-router.use('/filters', filtersRoute);
-
-router.get('/brands', brandController.getBrands);
-router.get('/categories', categoryController.getCategories);
-
-router.delete('/sneakers/delete/:id', async (req, res, next) => {
-	const idSneaker = req.params.id;
-	//console.log("id de params ruta delete", idSneaker)
-	try {
-		let resultado = await deletebdInfo(idSneaker);
-		if (resultado) res.status(200).send('Sneaker deleted');
-		else res.status(400).send('we have a problem in deleted route');
-	} catch (error) {
-		//console.log("We have a problem in Delete Route")
-	}
+        // include: [{
+        //     model: ModelShoe,
+        //     required: true,
+        //     include: [{
+        //         model: Brand,
+        //         required: true,
+        //     }]
+        // }]
+    });
+    res.json(sneaker);
 });
 
 module.exports = router;

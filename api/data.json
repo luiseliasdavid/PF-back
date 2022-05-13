@@ -1,0 +1,17 @@
+[
+    {
+        "brand": "Nike",
+        "model": "Mercurial",
+        "color": "red",
+        "size": 44.5,
+        "material": "sintetic",
+        "description": "shoes to play soccer",
+        "stock": 5,
+        "price": 250,
+        "image": "image.com",
+        "category": [
+            "soccer",
+            "running"
+        ]
+    }
+]

@@ -1,5 +1,5 @@
 {
-    "results": [
+    "data": [
         {
             "brand_name": "Air Jordan",
             "category": [
@@ -707,47 +707,109 @@
                 }
             ],
             "upper_material": ""
-
         },
         {
-          "brand_name": "Vans",
-          "category": [
-          "skateboarding"
-          ],
-          "color": "Multi-Color",
-          "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
-          "main_picture_url": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
-          "name": "Old Skool 'Yacht Club'",
-          "nickname": "Yacht Club",
-          "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",    
-          "release_year": null,
-          "price": 6000,
-          "sizes": [
-            {"size": 35, "stock": 1},
-            {"size": 35.5, "stock": 1},
-            {"size": 36, "stock": 1},
-            {"size": 36.5, "stock": 1},
-            {"size": 37, "stock": 1},
-            {"size": 37.5, "stock": 1},
-            {"size": 38, "stock": 1},
-            {"size": 38.5, "stock": 1},
-            {"size": 39, "stock": 1},
-            {"size": 39.5, "stock": 1},
-            {"size": 40, "stock": 1},
-            {"size": 40.5, "stock": 1},
-            {"size": 41, "stock": 1},
-            {"size": 41.5, "stock": 1},
-            {"size": 42, "stock": 1},
-            {"size": 42.5, "stock": 1},
-            {"size": 43, "stock": 1},
-            {"size": 43.5, "stock": 1},
-            {"size": 44, "stock": 1},
-            {"size": 44.5, "stock": 1},
-            {"size": 45 , "stock": 1}
-        ],
-          "upper_material": ""
-          },
-          {
+            "brand_name": "Vans",
+            "category": [
+                "skateboarding"
+            ],
+            "color": "Multi-Color",
+            "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
+            "main_picture_url": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
+            "name": "Old Skool 'Yacht Club'",
+            "nickname": "Yacht Club",
+            "original_picture_url": "https://image.goat.com/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
+            "release_year": null,
+            "price": 6000,
+            "sizes": [
+                {
+                    "size": 35,
+                    "stock": 1
+                },
+                {
+                    "size": 35.5,
+                    "stock": 1
+                },
+                {
+                    "size": 36,
+                    "stock": 1
+                },
+                {
+                    "size": 36.5,
+                    "stock": 1
+                },
+                {
+                    "size": 37,
+                    "stock": 1
+                },
+                {
+                    "size": 37.5,
+                    "stock": 1
+                },
+                {
+                    "size": 38,
+                    "stock": 1
+                },
+                {
+                    "size": 38.5,
+                    "stock": 1
+                },
+                {
+                    "size": 39,
+                    "stock": 1
+                },
+                {
+                    "size": 39.5,
+                    "stock": 1
+                },
+                {
+                    "size": 40,
+                    "stock": 1
+                },
+                {
+                    "size": 40.5,
+                    "stock": 1
+                },
+                {
+                    "size": 41,
+                    "stock": 1
+                },
+                {
+                    "size": 41.5,
+                    "stock": 1
+                },
+                {
+                    "size": 42,
+                    "stock": 1
+                },
+                {
+                    "size": 42.5,
+                    "stock": 1
+                },
+                {
+                    "size": 43,
+                    "stock": 1
+                },
+                {
+                    "size": 43.5,
+                    "stock": 1
+                },
+                {
+                    "size": 44,
+                    "stock": 1
+                },
+                {
+                    "size": 44.5,
+                    "stock": 1
+                },
+                {
+                    "size": 45,
+                    "stock": 1
+                }
+            ],
+            "upper_material": ""
+        },
+        {
             "brand_name": "adidas",
             "category": [
                 "lifestyle"
@@ -1279,5 +1341,5 @@
             ],
             "material": "Primeknit"
         }
-  ]
+    ]
 }

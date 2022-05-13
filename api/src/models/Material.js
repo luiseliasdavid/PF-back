@@ -1,9 +1,9 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('brand', {
+    sequelize.define('material', {
         // Model attributes are defined here
-        nameBrand: {
+        nameMaterial: {
             type: DataTypes.STRING,
             allowNull: false
         }
