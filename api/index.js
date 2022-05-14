@@ -23,81 +23,109 @@ const data = require('./data.json');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
+
 	//!Llenando base de datos, con el archivo data.json.
+	
+
+	//!Llenndo tabla size
+	for await (let obj of data) {
+		obj.sizes.forEach(async (objsiz) =>{
+			const [size, created] = await Size.findOrCreate({
+					where: { numberSize: objsiz.size }
+				})
+		})
+	};
+
 	//!Llenando tabla categorías.
-	data.forEach(obj => {
+	for await (let obj of data){
 		obj.category.forEach(async (objCat) => {
 			const [cat, created] = await Category.findOrCreate({
 				where: { nameCategory: objCat }
 			});
 		})
-	});
+	};
 
 	//!Llenndo tabla brand
-	data.forEach(async (obj) => {
+	for await (let obj of data) {
 		const [brand, created] = await Brand.findOrCreate({
 			where: { nameBrand: obj.brand }
 		})
-	});
+	};
 
 	//!Llenndo tabla material
-	data.forEach(async (obj) => {
+	for await (let obj of data) {
 		const [material, created] = await Material.findOrCreate({
 			where: { nameMaterial: obj.material }
 		})
-	});
+	};
+
 
 	//!Llenndo tabla  model
-	data.forEach(async (obj) => {
-		const brand = await Brand.findOne({
-			where: { nameBrand: obj.brand }
-		});
-		const material = await Material.findOne({
-			where: { nameMaterial: obj.material }
-		});
-		const mat = material.toJSON();
-		const bra = brand.toJSON();
-		const model = await Model.create({ nameModel: obj.model, description: obj.description, brandId: bra.id, materialId: mat.id });
-		obj.category.forEach(async (objCat) => {
-			const [cat, created] = await Category.findOrCreate({
-				where: { nameCategory: objCat }
-			});
-			await model.addCategory(cat);
-		})
-	});
+	for await (let obj of data) {
+      const brand = await Brand.findOne({
+        where: { nameBrand: obj.brand },
+      });
+      const material = await Material.findOne({
+        where: { nameMaterial: obj.material },
+      });
+      const mat = material.toJSON();
+      const bra = brand.toJSON();
+      const model = await Model.create({
+        nameModel: obj.model,
+        description: obj.description,
+        brandId: bra.id,
+        materialId: mat.id,
+      });
+
+      obj.category.forEach(async (objCat) => {
+        const [cat, created] = await Category.findOrCreate({
+          where: { nameCategory: objCat },
+        });
+        await model.addCategory(cat);
+      });
+
+      obj.sizes.forEach(async (objsiz) => {
+        const [siz, created] = await Size.findOrCreate({
+          where: { numberSize: objsiz.size },
+        });
+        await model.addSize(siz, { through: { stock: objsiz.stock } });
+      });
+    };
 
 	//!Llenando tabla color
-	data.forEach(async (obj) => {
+	for await (let obj of data) {
 		const [color, created] = await Color.findOrCreate({
 			where: { nameColor: obj.color }
 		})
-	});
-
-	//!Llenndo tabla size
-	data.forEach(async (obj) => {
-		const [size, created] = await Size.findOrCreate({
-			where: { numberSize: obj.size }
-		})
-	});
+	};
 
 	//!Llenndo tabla Sneaker
-	data.forEach(async (obj) => {
+	for await (let obj of data) {
 		const color = await Color.findOne({
 			where: { nameColor: obj.color }
 		});
-		const size = await Size.findOne({
-			where: { numberSize: obj.size }
-		});
-		const model = await Model.findOne({
-			where: { nameModel: obj.model }
-		});
 		const col = color.toJSON();
-		const siz = size.toJSON();
-		const mod = model.toJSON();
-		await Sneaker.create({ stock: obj.stock, price: obj.price, image: obj.image, colorId: col.id, sizeId: siz.id, modelId: mod.id })
-	});
+		const mod = color.toJSON();
+		await Sneaker.create({  price: obj.price, image: obj.image, colorId: col.id, modelId:mod.id})
+	};
 
 	server.listen(3001, () => {
 		console.log('%s listening at 3001'); // eslint-disable-line no-console
 	});
 });
+
+
+
+
+
+
+	
+
+
+
+	
+
+	
+
+	
+

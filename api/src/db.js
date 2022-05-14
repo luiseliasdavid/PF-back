@@ -1,7 +1,9 @@
 require('dotenv').config();
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+
+
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/sneakers`, {
@@ -30,28 +32,60 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Sneaker, Size, Color, Model, Material, Brand, Category } = sequelize.models;
+ const { Sneaker, Size, Color, Model, Material, Brand, Category } = sequelize.models;
 
-//!Sneaker a color
-Sneaker.belongsTo(Color);
-Color.hasMany(Sneaker);
-//!Sneaker a talla
-Sneaker.belongsTo(Size);
-Size.hasMany(Sneaker);
-//!Modelo a marca
-Model.belongsTo(Brand);
-Brand.hasMany(Model);
-//!Modelo a material
-Model.belongsTo(Material);
-Material.hasMany(Model);
-//!Sneaker a modelo
-Sneaker.belongsTo(Model);
-Model.hasMany(Sneaker);
+
 //!Modelo a categorias(m:n)
 Model.belongsToMany(Category, { through: "model_category", timestamps: false });
 Category.belongsToMany(Model, { through: "model_category", timestamps: false });
 
+
+//!Modelo a marca
+Model.belongsTo(Brand);
+Brand.hasMany(Model);
+
+//!Modelo a material
+Model.belongsTo(Material);
+Material.hasMany(Model);
+
+
+//!Modelo a Sizes(m:n)
+let ModelSize = sequelize.define('modelsize', {
+  stock:{
+    type:DataTypes.INTEGER,
+    allowNull:false,
+  }
+},{
+  timestamps:false
+});
+Model.belongsToMany(Size, { through : ModelSize  });
+Size.belongsToMany(Model, { through : ModelSize });
+
+
+//!Sneaker a color
+Sneaker.belongsTo(Color);
+Color.hasMany(Sneaker);
+
+
+//!Sneaker a modelo
+Sneaker.belongsTo(Model);
+Model.hasMany(Sneaker);
+
+
 module.exports = {
+  
   ...sequelize.models,
   conn: sequelize,
+  
 };
+
+
+
+
+
+
+
+
+
+
+

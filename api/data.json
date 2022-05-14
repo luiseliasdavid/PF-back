@@ -3,7 +3,15 @@
         "brand": "Nike",
         "model": "Mercurial",
         "color": "red",
-        "size": 44.5,
+        "sizes": [
+            {"size":35.5,
+                "stock":300
+            },
+            {
+              "size":25.5,
+              "stock":5  
+            }
+        ],
         "material": "sintetic",
         "description": "shoes to play soccer",
         "stock": 5,
@@ -18,7 +26,15 @@
         "brand": "Jordan",
         "model": "Air Jordan",
         "color": "black",
-        "size": 35.5,
+        "sizes": [
+            {"size":45.5,
+                "stock":12
+            },
+            {
+              "size":55.5,
+              "stock":8  
+            }
+        ],
         "material": "cloth",
         "description": "shoes to play backetball",
         "stock": 10,
@@ -33,7 +49,15 @@
         "brand": "Champion",
         "model": "Rally Pro 'Black'",
         "color": "black",
-        "size": 25.5,
+        "sizes": [
+            {"size":15.5,
+                "stock":3
+            },
+            {
+              "size":33.5,
+              "stock":2  
+            }
+        ],
         "material": "Leather",
         "description": "Champion comes the Rally Pro in a black and white colorway. ",
         "stock": 20,
@@ -47,7 +71,15 @@
         "brand": "Vans",
         "model": "Old Skool 'Yacht Club'",
         "color": "blue",
-        "size": 40.5,
+        "sizes": [
+            {"size":32.5,
+                "stock":10
+            },
+            {
+              "size":38.5,
+              "stock":3  
+            }
+        ],
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
@@ -61,7 +93,15 @@
         "brand": "Vans",
         "model": "Old Skool 'Yacht Club'",
         "color": "blue",
-        "size": 40.5,
+        "sizes": [
+            {"size":33.5,
+                "stock":12
+            },
+            {
+              "size":40.5,
+              "stock":2  
+            }
+        ],
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
@@ -75,7 +115,15 @@
         "brand": "Vans",
         "model": "Old Skool 'Yacht Club'",
         "color": "blue",
-        "size": 40.5,
+        "sizes": [
+            {"size":22.5,
+                "stock":9
+            },
+            {
+              "size":42.5,
+              "stock":1  
+            }
+        ],
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
@@ -89,11 +137,41 @@
         "brand": "Vans",
         "model": "Old Skool 'Yacht Club'",
         "color": "blue",
-        "size": 40.5,
+        "sizes": [
+            {"size":37.5,
+                "stock":5
+            },
+            {
+              "size":55.5,
+              "stock":7  
+            }
+        ],
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
-        "price": 6000,
+        "price": 220,
+        "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
+        "category": [
+            "skateboarding"
+        ]
+    },
+    {
+        "brand": "Vans",
+        "model": "Old Skool 'Yacht Club'",
+        "color": "blue",
+        "sizes": [
+            {"size":37.5,
+                "stock":5
+            },
+            {
+              "size":55.5,
+              "stock":7  
+            }
+        ],
+        "material": "cloth",
+        "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
+        "stock": 8,
+        "price": 220,
         "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
         "category": [
             "skateboarding"
