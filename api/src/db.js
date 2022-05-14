@@ -30,14 +30,11 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Sneaker, Size, Color, Model, Material, Brand, Category } = sequelize.models;
+const { Sneaker, Size, Color, Model, Material, Brand, Category, Modelsize } = sequelize.models;
 
 //!Sneaker a color
 Sneaker.belongsTo(Color);
 Color.hasMany(Sneaker);
-//!Sneaker a talla
-Sneaker.belongsTo(Size);
-Size.hasMany(Sneaker);
 //!Modelo a marca
 Model.belongsTo(Brand);
 Brand.hasMany(Model);
@@ -47,6 +44,9 @@ Material.hasMany(Model);
 //!Sneaker a modelo
 Sneaker.belongsTo(Model);
 Model.hasMany(Sneaker);
+//! Modelo a Size (m:n)
+Model.belongsToMany(Size, { through: Modelsize });
+Size.belongsToMany(Model, { through: Modelsize });
 //!Modelo a categorias(m:n)
 Model.belongsToMany(Category, { through: "model_category", timestamps: false });
 Category.belongsToMany(Model, { through: "model_category", timestamps: false });

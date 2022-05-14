@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
         numberSize: {
             type: DataTypes.FLOAT,
             allowNull: false,
-            unique: true
+            // unique: true
         }
     }, {
         timestamps: false

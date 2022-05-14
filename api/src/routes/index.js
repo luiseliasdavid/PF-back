@@ -14,14 +14,19 @@ router.get("/sneakers", async (req, res) => {
         const sneakerToJson = JSON.stringify(sneaker, null, 2);
         const jsonToObject = JSON.parse(sneakerToJson)
         const arraySneaker = [];
-        jsonToObject.forEach(element => {
+        // console.log(jsonToObject[0].model.sizes[0].modelsize.stock);
+        for await (element of jsonToObject) {
             let obj = {
                 id: element.id,
                 stock: element.stock,
                 price: element.price,
                 image: element.image,
                 color: element.color.nameColor,
-                size: element.size.numberSize,
+                sizes: element.model.sizes.map(obj => {
+                    return (
+                        { size: obj.numberSize, stock: obj.modelsize.stock }
+                    )
+                }),
                 model: element.model.nameModel,
                 description: element.model.description,
                 brand: element.model.brand.nameBrand,
@@ -33,7 +38,27 @@ router.get("/sneakers", async (req, res) => {
                 })
             }
             arraySneaker.push(obj);
-        });
+        }
+        // jsonToObject.forEach(element => {
+        //     let obj = {
+        //         id: element.id,
+        //         stock: element.stock,
+        //         price: element.price,
+        //         image: element.image,
+        //         color: element.color.nameColor,
+        //         size: element.size.numberSize,
+        //         model: element.model.nameModel,
+        //         description: element.model.description,
+        //         brand: element.model.brand.nameBrand,
+        //         material: element.model.material.nameMaterial,
+        //         categories: element.model.categories.map(category => {
+        //             return (
+        //                 category.nameCategory
+        //             )
+        //         })
+        //     }
+        //     arraySneaker.push(obj);
+        // });
         res.send(arraySneaker);
     } catch (error) {
         console.log(error)
@@ -63,6 +88,7 @@ router.get("/sneaker/:id", async (req, res) => {
     const id = req.params.id;
     //brand, model, price, description, size, material, image.
     const sneaker = await Sneaker.findByPk(id);
+
     res.send(sneaker);
 });
 
