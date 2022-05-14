@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
     sequelize.define('user', {
         // Model attributes are defined here
-        name: {
+        nameUser: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -14,16 +14,16 @@ module.exports = (sequelize) => {
         },
         typeUser: {
             type: DataTypes.ENUM('admin', 'client'),
-            allowNull: false
+            defaultValue: 'client'
         },
-        paswword: {
+        password: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        tel: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
+        // tel: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // }
     }, {
         timestamps: false
     });

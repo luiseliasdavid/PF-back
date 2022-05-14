@@ -1,6 +1,6 @@
 const { Router } = require("express");
-const { Sneaker, Brand, Category, Color } = require("../db.js");
-const { Op } = require("sequelize");
+const { Sneaker, Brand, Category, User } = require("../db.js");
+const { encryptPass } = require("../utils/encrypt.js");
 
 const router = Router();
 
@@ -99,6 +99,24 @@ router.get("/sneaker/:id", async (req, res) => {
         res.send(obj);
     } else {
         res.json({ msg: "id no válido" });
+    }
+});
+
+router.post("/user", async (req, res) => {
+    const { name, email, password } = req.body;
+    console.log(name, email, password)
+    const encryptPassword = encryptPass(password);
+    const [user, created] = await User.findOrCreate({
+        where: { email: email },
+        defaults: {
+            nameUser: name, email: email, password: encryptPassword
+        }
+    })
+    console.log(created)
+    if (created) {
+        res.send({ msg: "Se creó correctamente" });
+    } else {
+        res.send({ msg: "Email registrado" });
     }
 });
 

@@ -3,7 +3,6 @@ const { Sequelize, DataTypes } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 
-
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/sneakers`, {
@@ -32,7 +31,7 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Sneaker, Size, Color, Model, Material, Brand, Category } = sequelize.models;
+const { Sneaker, Size, Color, Model, Material, Brand, Category, User } = sequelize.models;
 
 
 //!Modelo a categorias(m:n)
@@ -72,10 +71,8 @@ Sneaker.belongsTo(Model);
 Model.hasMany(Sneaker);
 
 module.exports = {
-
   ...sequelize.models,
   conn: sequelize,
-
 };
 
 
