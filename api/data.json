@@ -64,7 +64,7 @@
         "size": 40.5,
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
-        "stock": 30,
+        "stock": 8,
         "price": 6000,
         "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
         "category": [
@@ -78,7 +78,7 @@
         "size": 40.5,
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
-        "stock": 30,
+        "stock": 8,
         "price": 6000,
         "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
         "category": [
@@ -88,11 +88,11 @@
     {
         "brand": "Vans",
         "model": "Old Skool 'Yacht Club'",
-        "color": "red",
-        "size": 30.5,
+        "color": "blue",
+        "size": 40.5,
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
-        "stock": 30,
+        "stock": 8,
         "price": 6000,
         "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
         "category": [

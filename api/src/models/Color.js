@@ -5,7 +5,8 @@ module.exports = (sequelize) => {
         // Model attributes are defined here
         nameColor: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         }
     }, {
         timestamps: false

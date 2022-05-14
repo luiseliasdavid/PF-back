@@ -5,7 +5,8 @@ module.exports = (sequelize) => {
         // Model attributes are defined here
         numberSize: {
             type: DataTypes.FLOAT,
-            allowNull: false
+            allowNull: false,
+            unique: true
         }
     }, {
         timestamps: false
