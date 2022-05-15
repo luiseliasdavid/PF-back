@@ -1,8 +1,8 @@
 [
     {
         "brand": "Nike",
-        "model": "Mercurial",
-        "color": "red",
+        "model": "Air Max Anator",
+        "color": "brown",
         "sizes": [
             {
                 "size": 35.5,
@@ -16,17 +16,65 @@
         "material": "sintetic",
         "description": "shoes to play soccer",
         "stock": 5,
-        "price": 250,
-        "image": "image.com",
+        "price": 280,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_855096-MLA49396621168_032022-O.webp",
         "category": [
             "soccer",
             "running"
         ]
     },
     {
-        "brand": "Jordan",
-        "model": "Air Jordan",
-        "color": "black",
+        "brand": "Nike",
+        "model": "Air Max Dia",
+        "color": "brown",
+        "sizes": [
+            {
+                "size": 35.5,
+                "stock": 300
+            },
+            {
+                "size": 25.5,
+                "stock": 5
+            }
+        ],
+        "material": "sintetic",
+        "description": "shoes to play soccer",
+        "stock": 5,
+        "price": 290,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_992665-MLA47575298294_092021-O.webp",
+        "category": [
+            "soccer",
+            "running"
+        ]
+    },
+    {
+        "brand": "Nike",
+        "model": "Air Max Xxxi",
+        "color": "brown",
+        "sizes": [
+            {
+                "size": 35.5,
+                "stock": 300
+            },
+            {
+                "size": 25.5,
+                "stock": 5
+            }
+        ],
+        "material": "sintetic",
+        "description": "shoes to play soccer",
+        "stock": 6,
+        "price": 300,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_644088-MLA49817825268_042022-W.webp",
+        "category": [
+            "soccer",
+            "running"
+        ]
+    },
+    {
+        "brand": "Nike",
+        "model": "Nike Day II",
+        "color": "red",
         "sizes": [
             {
                 "size": 45.5,
@@ -41,7 +89,7 @@
         "description": "shoes to play backetball",
         "stock": 10,
         "price": 500,
-        "image": "imgJordan.com",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_635143-MLA49684070123_042022-O.webp",
         "category": [
             "urban",
             "street"
@@ -89,6 +137,29 @@
         "stock": 8,
         "price": 6000,
         "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
+        "category": [
+            "skateboarding"
+        ]
+    },
+    {
+        "brand": "Vans",
+        "model": "Sk8 Classic",
+        "color": "blue",
+        "sizes": [
+            {
+                "size": 32.5,
+                "stock": 10
+            },
+            {
+                "size": 38.5,
+                "stock": 3
+            }
+        ],
+        "material": "cloth",
+        "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
+        "stock": 8,
+        "price": 6000,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_897755-MLA46924321684_072021-O.webp",
         "category": [
             "skateboarding"
         ]

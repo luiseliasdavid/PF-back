@@ -105,8 +105,11 @@ conn.sync({ force: true }).then(async () => {
 		const color = await Color.findOne({
 			where: { nameColor: obj.color }
 		});
+		const modelo = await Model.findOne({
+			where: { nameModel: obj.model }
+		});
 		const col = color.toJSON();
-		const mod = color.toJSON();
+		const mod = modelo.toJSON();
 		await Sneaker.create({ price: obj.price, image: obj.image, colorId: col.id, modelId: mod.id })
 	};
 
