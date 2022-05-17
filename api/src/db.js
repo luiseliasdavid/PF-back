@@ -12,10 +12,17 @@ const db={
   password: DB_PASSWORD || 'f913d8ff3aa50c39a434e8b805200e15c059c06436baa8aaa85551a41fe03cc2'
 
 }
+//postgres://uhrwielpezyxym:f913d8ff3aa50c39a434e8b805200e15c059c06436baa8aaa85551a41fe03cc2@ec2-52-71-69-66.compute-1.amazonaws.com:5432/d8rp7epoiokuee
 
 const sequelize = new Sequelize(`postgres://${db.user}:${db.password}@${db.host}:5432/${db.name}`, {
   logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  native: false, 
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }// lets Sequelize know we can use pg-native for ~30% more speed
 });
 try {
   sequelize.authenticate();
