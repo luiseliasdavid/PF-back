@@ -3,9 +3,16 @@ const { Sequelize, DataTypes } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/sneakers`, {
+const herokuDb = {
+  user: "uhrwielpezyxym",
+  host: "ec2-52-71-69-66.compute-1.amazonaws.com",
+  password: "f913d8ff3aa50c39a434e8b805200e15c059c06436baa8aaa85551a41fe03cc2",
+  name: "d8rp7epoiokuee"
+}
+
+const sequelize = new Sequelize(`postgres://${DB_USER || herokuDb.user }:${DB_PASSWORD || herokuDb.password }@${DB_HOST || herokuDb.host}/${DB_NAME || herokuDb.name}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
