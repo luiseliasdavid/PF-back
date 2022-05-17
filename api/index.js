@@ -116,7 +116,7 @@ conn.sync({ force: true }).then(async () => {
 	const port = process.env.PORT || 3001;
 
 	server.listen(port, () => {
-		console.log('%s listening at 3001'); // eslint-disable-line no-console
+		console.log(`%s listening at ${port}` ); // eslint-disable-line no-console
 	});
 });
 
