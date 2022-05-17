@@ -5,7 +5,7 @@ const path = require('path');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
-const dataBase={
+const db={
   user: DB_USER || "uhrwielpezyxym",
   host: DB_HOST || "ec2-52-71-69-66.compute-1.amazonaws.com",
   name: DB_NAME || "d8rp7epoiokuee",
