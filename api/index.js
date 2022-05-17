@@ -18,29 +18,118 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-const response= require('./src/bdInfo/respuesta.json'); 
-const {Sneakers, Brand} = require('./src/db.js');
+const { conn, Sneaker, Color, Size, Model, Brand, Material, Category, Modelsize } = require('./src/db.js');
+const data = require('./data.json');
+const { Op } = require('sequelize');
+
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: true }).then(async () => {
+
+	//!Llenando base de datos, con el archivo data.json.
 
 
-Brand.findAll()
-.then (res => res.length === 0? Brand.bulkCreate([
-					{ name: 'Nike' },
-					{ name: 'Adidas' },
-					{ name: 'Air jordan' },
-					{ name: 'Converse' },
-					{ name: 'Vans' }, 
-					{ name: 'Champion' },
-				]):null)
+	//!Llenndo tabla size
+	for await (let obj of data) {
+		obj.sizes.forEach(async (objsiz) => {
+			const [size, created] = await Size.findOrCreate({
+				where: { numberSize: objsiz.size }
+			})
+		})
+	};
+
+	//!Llenando tabla categorías.
+	for await (let obj of data) {
+		obj.category.forEach(async (objCat) => {
+			const [cat, created] = await Category.findOrCreate({
+				where: { nameCategory: objCat }
+			});
+		})
+	};
+
+	//!Llenndo tabla brand
+	for await (let obj of data) {
+		const [brand, created] = await Brand.findOrCreate({
+			where: { nameBrand: obj.brand }
+		})
+	};
+
+	//!Llenndo tabla material
+	for await (let obj of data) {
+		const [material, created] = await Material.findOrCreate({
+			where: { nameMaterial: obj.material }
+		})
+	};
 
 
-Sneakers.findAll()
-.then (res => res.length === 0? Sneakers.bulkCreate(response.results):null)
-Sneakers.bulkCreate(response.results)
+	//!Llenndo tabla  model
+	for await (let obj of data) {
+		const brand = await Brand.findOne({
+			where: { nameBrand: obj.brand },
+		});
+		const material = await Material.findOne({
+			where: { nameMaterial: obj.material },
+		});
+		const mat = material.toJSON();
+		const bra = brand.toJSON();
+		const model = await Model.create({
+			nameModel: obj.model,
+			description: obj.description,
+			brandId: bra.id,
+			materialId: mat.id,
+		});
 
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  });
+		obj.category.forEach(async (objCat) => {
+			const [cat, created] = await Category.findOrCreate({
+				where: { nameCategory: objCat },
+			});
+			await model.addCategory(cat);
+		});
+
+		obj.sizes.forEach(async (objsiz) => {
+			const [siz, created] = await Size.findOrCreate({
+				where: { numberSize: objsiz.size },
+			});
+			await model.addSize(siz, { through: { stock: objsiz.stock } });
+		});
+	};
+
+	//!Llenando tabla color
+	for await (let obj of data) {
+		const [color, created] = await Color.findOrCreate({
+			where: { nameColor: obj.color }
+		})
+	};
+
+	//!Llenndo tabla Sneaker
+	for await (let obj of data) {
+		const color = await Color.findOne({
+			where: { nameColor: obj.color }
+		});
+		const modelo = await Model.findOne({
+			where: { nameModel: obj.model }
+		});
+		const col = color.toJSON();
+		const mod = modelo.toJSON();
+		await Sneaker.create({ price: obj.price, image: obj.image, colorId: col.id, modelId: mod.id })
+	};
+
+	server.listen(3001, () => {
+		console.log('%s listening at 3001'); // eslint-disable-line no-console
+	});
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

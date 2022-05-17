@@ -1,12 +1,16 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('brand', {
+    sequelize.define('model', {
         // Model attributes are defined here
-        nameBrand: {
+        nameModel: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
+            // unique: true,
+            allowNull: false
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     }, {
         timestamps: false
