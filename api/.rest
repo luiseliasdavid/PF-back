@@ -1,0 +1,14 @@
+
+
+http://localhost:3001/user  
+Content-Type: application/json 
+
+{
+"name": "ana", 
+"email": "ama@gmail.com", 
+"password": "1234",
+}
+
+###
+
+http://localhost:3001/getUser
