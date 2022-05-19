@@ -6,14 +6,14 @@
         "sizes": [
             {
                 "size": 35.5,
-                "stock": 300
+                "stock": 10
             },
             {
                 "size": 25.5,
                 "stock": 5
             }
         ],
-        "material": "sintetic",
+        "material": "synthetic",
         "description": "shoes to play soccer",
         "stock": 5,
         "price": 280,
@@ -30,14 +30,14 @@
         "sizes": [
             {
                 "size": 35.5,
-                "stock": 300
+                "stock": 12
             },
             {
                 "size": 25.5,
                 "stock": 5
             }
         ],
-        "material": "sintetic",
+        "material": "synthetic",
         "description": "shoes to play soccer",
         "stock": 5,
         "price": 290,
@@ -54,17 +54,17 @@
         "sizes": [
             {
                 "size": 35.5,
-                "stock": 300
+                "stock": 13
             },
             {
                 "size": 25.5,
                 "stock": 5
             }
         ],
-        "material": "sintetic",
+        "material": "synthetic",
         "description": "shoes to play soccer",
         "stock": 6,
-        "price": 300,
+        "price": 10,
         "image": "https://http2.mlstatic.com/D_NQ_NP_644088-MLA49817825268_042022-W.webp",
         "category": [
             "soccer",
