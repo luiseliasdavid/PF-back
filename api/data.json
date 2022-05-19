@@ -213,8 +213,8 @@
     },
     {
         "brand": "Vans",
-        "model": "Old Skool 'Yacht Club'",
-        "color": "blue",
+        "model": "Old Skool 'Amarillo'",
+        "color": "yellow",
         "sizes": [
             {
                 "size": 22.5,
@@ -229,14 +229,14 @@
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
         "price": 6000,
-        "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_910995-MLA43237716470_082020-W.webp",
         "category": [
             "skateboarding"
         ]
     },
     {
         "brand": "Vans",
-        "model": "Old Skool 'Yacht Club'",
+        "model": "Skull Zass",
         "color": "blue",
         "sizes": [
             {
@@ -252,15 +252,15 @@
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
         "price": 220,
-        "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_924559-MLA49474801033_032022-W.webp",
         "category": [
             "skateboarding"
         ]
     },
     {
         "brand": "Vans",
-        "model": "Old Skool 'Yacht Club'",
-        "color": "blue",
+        "model": "Dreams'",
+        "color": "yellow",
         "sizes": [
             {
                 "size": 37.5,
@@ -275,9 +275,9 @@
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
         "price": 220,
-        "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_799027-MLA48240497614_112021-W.webp",
         "category": [
-            "soccer",
+            
             "running"
         ]
     },
@@ -394,6 +394,30 @@
         "image": "https://http2.mlstatic.com/D_NQ_NP_888530-MLA48316980378_112021-O.webp",
         "category": [
             "running"
+        ]
+    }
+    ,
+    {
+        "brand": "Vans",
+        "model": "Navis's'",
+        "color": "blue",
+        "sizes": [
+            {
+                "size": 37.5,
+                "stock": 5
+            },
+            {
+                "size": 55.5,
+                "stock": 7
+            }
+        ],
+        "material": "cloth",
+        "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
+        "stock": 8,
+        "price": 220,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_767928-MLA48575298277_122021-O.webp",
+        "category": [
+                "lifestyle"
         ]
     }
 ]

@@ -5,16 +5,16 @@ const path = require('path');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
 
-const db={
+const herokuDb = {
   user: DB_USER || "uhrwielpezyxym",
   host: DB_HOST || "ec2-52-71-69-66.compute-1.amazonaws.com",
-  name: DB_NAME || "d8rp7epoiokuee",
-  password: DB_PASSWORD || 'f913d8ff3aa50c39a434e8b805200e15c059c06436baa8aaa85551a41fe03cc2'
-
+  password: DB_PASSWORD || "f913d8ff3aa50c39a434e8b805200e15c059c06436baa8aaa85551a41fe03cc2",
+  //name: !DB_NAME ? "sneakers" : "d8rp7epoiokuee"
+  name: DB_NAME || "d8rp7epoiokuee"
 }
-//postgres://uhrwielpezyxym:f913d8ff3aa50c39a434e8b805200e15c059c06436baa8aaa85551a41fe03cc2@ec2-52-71-69-66.compute-1.amazonaws.com:5432/d8rp7epoiokuee
 
-const sequelize = new Sequelize(`postgres://${db.user}:${db.password}@${db.host}:5432/${db.name}`, {
+
+const sequelize = new Sequelize(`postgres://${herokuDb.user }:${herokuDb.password }@${herokuDb.host}/${herokuDb.name}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, 
   dialectOptions: DB_NAME || {
@@ -24,6 +24,8 @@ const sequelize = new Sequelize(`postgres://${db.user}:${db.password}@${db.host}
     }
   }// lets Sequelize know we can use pg-native for ~30% more speed
 });
+
+
 try {
   sequelize.authenticate();
   console.log('Connection has been established successfully.');
@@ -46,7 +48,7 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Sneaker, Size, Color, Model, Material, Brand, Category, User } = sequelize.models;
+const { Sneaker, Size, Color, Model, Material, Brand, Category, User,Order } = sequelize.models;
 
 
 //!Modelo a categorias(m:n)
@@ -75,6 +77,34 @@ let ModelSize = sequelize.define('modelsize', {
 Model.belongsToMany(Size, { through: ModelSize });
 Size.belongsToMany(Model, { through: ModelSize });
 
+//!Carrito de compra (m:n) User - Sneakers
+let Cart = sequelize.define('cart', {
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  }
+}, {
+  timestamps: false
+});
+User.belongsToMany(Sneaker, { through: Cart });
+Sneaker.belongsToMany(User, { through: Cart });
+
+//!Orden Sneaker
+let OrderSneaker = sequelize.define('ordersneaker', {
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  }
+}, {
+  timestamps: false
+});
+Order.belongsToMany(Sneaker, { through: OrderSneaker });
+Sneaker.belongsToMany(Order, { through: OrderSneaker });
+
+
+//!User a Order
+Order.belongsTo(User);
+User.hasMany(Order);
 
 //!Sneaker a color
 Sneaker.belongsTo(Color);
@@ -86,6 +116,7 @@ Sneaker.belongsTo(Model);
 Model.hasMany(Sneaker);
 
 module.exports = {
+  Cart,
   ...sequelize.models,
   conn: sequelize,
 };

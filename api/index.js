@@ -113,10 +113,10 @@ conn.sync({ force: true }).then(async () => {
 		await Sneaker.create({ price: obj.price, image: obj.image, colorId: col.id, modelId: mod.id })
 	};
 
-	const port = process.env.PORT || 3001
+	const port = process.env.PORT || 3001;
 
 	server.listen(port, () => {
-		console.log('%s listening at 3001'); // eslint-disable-line no-console
+		console.log(`%s listening at ${port}` ); // eslint-disable-line no-console
 	});
 });
 
