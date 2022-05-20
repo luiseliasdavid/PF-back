@@ -8,9 +8,11 @@ const deleteUser = async (req, res) => {
 
   if (checked) {
     try {
-      return res.json(await User.destroy({
+      const name = checked[0].nameUser
+      await User.destroy({
         where: { id: id }
-      }))
+      })
+      return res.json({msg: `the user ${name} with the id: ${id} has been deleted`})
     } catch (error) {
       res.status(404).send(error)
     }

@@ -14,7 +14,8 @@ const deleteUser = require("./functions/deleteUser.js");
 const createCategory = require("./functions/createCategory.js");
 const getAllCategories = require("./functions/getAllCategories.js");
 const deleteCategory = require("./functions/deleteCategory.js");
-const createProduct = require("./functions/createProduct.js");
+const createModel = require("./functions/createModel.js");
+const createSneaker = require('./functions/createSneaker')
 
 const router = Router();
 
@@ -25,7 +26,8 @@ router.get("/getAllCat", getAllCategories)
 router.delete("/deleteUser/:id", deleteUser)
 router.delete("/deleteCat/:id", deleteCategory)
 router.post("/createCate", createCategory)
-router.post("/createProduct", createProduct)
+router.post("/createModel", createModel)
+router.post("/createSneaker", createSneaker)
 
 //users
 router.post("/user", createUser);
