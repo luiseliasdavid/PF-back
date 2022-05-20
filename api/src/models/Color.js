@@ -6,7 +6,6 @@ module.exports = (sequelize) => {
         nameColor: {
             type: DataTypes.STRING,
             allowNull: false,
-          
         }
     }, {
         timestamps: false

@@ -13,12 +13,19 @@ const herokuDb = {
   name: DB_NAME || "d8rp7epoiokuee"
 }
 
-console.log(herokuDb.name)
 
 const sequelize = new Sequelize(`postgres://${herokuDb.user }:${herokuDb.password }@${herokuDb.host}/${herokuDb.name}`, {
   logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  native: false, 
+  dialectOptions: DB_NAME || {
+    ssl: {
+      require: true ,
+      rejectUnauthorized: false
+    }
+  }// lets Sequelize know we can use pg-native for ~30% more speed
 });
+
+
 try {
   sequelize.authenticate();
   console.log('Connection has been established successfully.');
@@ -41,7 +48,7 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Sneaker, Size, Color, Model, Material, Brand, Category, User } = sequelize.models;
+const { Sneaker, Size, Color, Model, Material, Brand, Category, User,Order } = sequelize.models;
 
 
 //!Modelo a categorias(m:n)
@@ -70,6 +77,34 @@ let ModelSize = sequelize.define('modelsize', {
 Model.belongsToMany(Size, { through: ModelSize });
 Size.belongsToMany(Model, { through: ModelSize });
 
+//!Carrito de compra (m:n) User - Sneakers
+let Cart = sequelize.define('cart', {
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  }
+}, {
+  timestamps: false
+});
+User.belongsToMany(Sneaker, { through: Cart });
+Sneaker.belongsToMany(User, { through: Cart });
+
+//!Orden Sneaker
+let OrderSneaker = sequelize.define('ordersneaker', {
+  quantity: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  }
+}, {
+  timestamps: false
+});
+Order.belongsToMany(Sneaker, { through: OrderSneaker });
+Sneaker.belongsToMany(Order, { through: OrderSneaker });
+
+
+//!User a Order
+Order.belongsTo(User);
+User.hasMany(Order);
 
 //!Sneaker a color
 Sneaker.belongsTo(Color);
@@ -81,6 +116,7 @@ Sneaker.belongsTo(Model);
 Model.hasMany(Sneaker);
 
 module.exports = {
+  Cart,
   ...sequelize.models,
   conn: sequelize,
 };
