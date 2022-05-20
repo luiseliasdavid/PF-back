@@ -6,14 +6,14 @@
         "sizes": [
             {
                 "size": 35.5,
-                "stock": 300
+                "stock": 10
             },
             {
                 "size": 25.5,
                 "stock": 5
             }
         ],
-        "material": "sintetic",
+        "material": "synthetic",
         "description": "shoes to play soccer",
         "stock": 5,
         "price": 280,
@@ -30,14 +30,14 @@
         "sizes": [
             {
                 "size": 35.5,
-                "stock": 300
+                "stock": 12
             },
             {
                 "size": 25.5,
                 "stock": 5
             }
         ],
-        "material": "sintetic",
+        "material": "synthetic",
         "description": "shoes to play soccer",
         "stock": 5,
         "price": 290,
@@ -54,17 +54,17 @@
         "sizes": [
             {
                 "size": 35.5,
-                "stock": 300
+                "stock": 13
             },
             {
                 "size": 25.5,
                 "stock": 5
             }
         ],
-        "material": "sintetic",
+        "material": "synthetic",
         "description": "shoes to play soccer",
         "stock": 6,
-        "price": 300,
+        "price": 10,
         "image": "https://http2.mlstatic.com/D_NQ_NP_644088-MLA49817825268_042022-W.webp",
         "category": [
             "soccer",
@@ -114,6 +114,29 @@
         "stock": 20,
         "price": 10000,
         "image": "https://image.goat.com/375/attachments/product_template_pictures/images/015/567/335/original/CM100018M.png.png",
+        "category": [
+            "lifestyle"
+        ]
+    },
+    {
+        "brand": "Champion",
+        "model": "Black 93'",
+        "color": "white",
+        "sizes": [
+            {
+                "size": 15.5,
+                "stock": 3
+            },
+            {
+                "size": 33.5,
+                "stock": 2
+            }
+        ],
+        "material": "Leather",
+        "description": "Champion white sneaker with blue logo ",
+        "stock": 20,
+        "price": 5000,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_936482-MLA45688022376_042021-O.webp",
         "category": [
             "lifestyle"
         ]
@@ -184,7 +207,8 @@
         "price": 6000,
         "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
         "category": [
-            "skateboarding"
+            "skateboarding",
+            "urban"
         ]
     },
     {
@@ -256,6 +280,121 @@
             
             "running"
         ]
+    },
+    {
+        "brand": "DC",
+        "model": "Big Buey",
+        "color": "black",
+        "sizes": [
+            {
+                "size": 37.5,
+                "stock": 5
+            },
+            {
+                "size": 39.5,
+                "stock": 7
+            }
+        ],
+        "material": "cloth",
+        "description": "Dc black sneakers with white logo",
+        "stock": 8,
+        "price": 180,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_801847-MLA48321932512_112021-O.webp",
+        "category": [
+            "skateboarding"
+        ]
+    },
+    {
+        "brand": "DC",
+        "model": "Tx pink",
+        "color": "pink",
+        "sizes": [
+            {
+                "size": 37.5,
+                "stock": 5
+            },
+            {
+                "size": 39.5,
+                "stock": 7
+            }
+        ],
+        "material": "cloth",
+        "description": "Dc pink sneakers",
+        "stock": 8,
+        "price": 190,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_839367-MLA48065274364_102021-O.webp",
+        "category": [
+            "skateboarding"
+        ]
+    },
+    {
+        "brand": "Puma",
+        "model": "Future Rider Twofold ",
+        "color": "blue",
+        "sizes": [
+            {
+                "size": 37.5,
+                "stock": 5
+            },
+            {
+                "size": 39.5,
+                "stock": 7
+            }
+        ],
+        "material": "cloth",
+        "description": "Multi-colors puma sneaker",
+        "stock": 8,
+        "price": 600,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_743911-MLA49665554411_042022-O.webp",
+        "category": [
+            "urban"
+        ]
+    },
+    {
+        "brand": "Puma",
+        "model": "Future Z",
+        "color": "orange",
+        "sizes": [
+            {
+                "size": 38.5,
+                "stock": 5
+            },
+            {
+                "size": 39.5,
+                "stock": 7
+            }
+        ],
+        "material": "cloth",
+        "description": "Orange and black soccer sneaker",
+        "stock": 8,
+        "price": 800,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_802886-MLA49776625549_042022-O.webp",
+        "category": [
+            "soccer"
+        ]
+    },
+    {
+        "brand": "Puma",
+        "model": "Flyer runner",
+        "color": "red",
+        "sizes": [
+            {
+                "size": 38.5,
+                "stock": 5
+            },
+            {
+                "size": 39.5,
+                "stock": 7
+            }
+        ],
+        "material": "cloth",
+        "description": "Red running sneaker with white puma logo",
+        "stock": 8,
+        "price": 900,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_888530-MLA48316980378_112021-O.webp",
+        "category": [
+            "running"
+        ]
     }
     ,
     {
@@ -278,8 +417,7 @@
         "price": 220,
         "image": "https://http2.mlstatic.com/D_NQ_NP_767928-MLA48575298277_122021-O.webp",
         "category": [
-             "lifestyle"
-            
+                "lifestyle"
         ]
     }
 ]

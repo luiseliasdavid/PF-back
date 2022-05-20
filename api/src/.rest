@@ -1,0 +1,50 @@
+http://localhost:3001/sneakers
+
+###
+
+http://localhost:3001/getAllCat
+
+###
+
+http://localhost:3001/getUser
+
+
+
+###
+
+DELETE http://localhost:3001/deleteCat/11
+
+###
+
+POST http://localhost:3001/createCate
+Content-Type: application/json
+
+{
+ "nameCategory": "basketball"
+}
+
+###
+
+POST http://localhost:3001/user
+Content-Type: application/json
+
+{
+ "name": "ana",
+ "email": "ana@gmail.com",
+ "contraseña": "asklajsla"
+}
+
+###
+
+POST http://localhost:3001/createProduct
+Content-Type: application/json
+
+{
+  "model": "ana",
+  "price": 250,
+  "match": "ana-tall",
+  "image": "ajskjas.jpg",
+  "color": "orange",
+  "description": "great sneaker",
+  "material": "silk"
+}
