@@ -2,13 +2,19 @@ http://localhost:3001/sneakers
 
 ###
 
-http://localhost:3001/getAllCat
+http://localhost:3001/categories
+
+###
+
+http://localhost:3001/getModels
 
 ###
 
 http://localhost:3001/getUser
 
+###
 
+DELETE http://localhost:3001/deleteUser/1
 
 ###
 
@@ -20,7 +26,7 @@ POST http://localhost:3001/createCate
 Content-Type: application/json
 
 {
- "nameCategory": "basketball"
+ "nameCategory": "swimming"
 }
 
 ###
@@ -31,7 +37,7 @@ Content-Type: application/json
 {
  "name": "ana",
  "email": "ana@gmail.com",
- "contraseña": "asklajsla"
+ "password": "asklajsla"
 }
 
 ###
@@ -48,3 +54,71 @@ Content-Type: application/json
   "description": "great sneaker",
   "material": "silk"
 }
+
+###
+
+POST https://node-api-sneakers.herokuapp.com/user
+Content-Type: application/json
+
+{
+ "name": "mateo",
+ "email": "mateo@gmail.com",
+ "password": "asklajsla"
+}
+
+###
+
+POST https://node-api-sneakers.herokuapp.com/user
+Content-Type: application/json
+
+{
+ "name": "anap",
+ "email": "anap@gmail.com",
+ "password": "holis"
+}
+
+###
+
+https://node-api-sneakers.herokuapp.com/categories
+
+
+###
+
+POST https://node-api-sneakers.herokuapp.com/createCate
+Content-Type: application/json
+
+{
+ "nameCategory": "swimming"
+}
+
+###
+
+GET https://node-api-sneakers.herokuapp.com/getModels
+
+###
+
+GET https://node-api-sneakers.herokuapp.com/getColors
+
+###
+
+ http://localhost:3001/getColors
+
+###
+
+GET https://node-api-sneakers.herokuapp.com/brands
+
+###
+
+GET https://node-api-sneakers.herokuapp.com/Materials
+
+###
+
+ http://localhost:3001/materials
+
+###
+
+https://node-api-sneakers.herokuapp.com/sizes
+
+###
+
+ http://localhost:3001/sizes
