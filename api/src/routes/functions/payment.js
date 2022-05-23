@@ -1,0 +1,25 @@
+const Stripe = require('stripe');
+require('dotenv').config();
+const { STRIPE_KEY } = process.env;
+const stripe = new Stripe(STRIPE_KEY);
+
+
+
+
+const payment= async (req, res) => {
+const { id, amount } = req.body;
+    try {
+      const payment = await stripe.paymentIntents.create({
+        payment_method: id,
+        amount,
+        currency: 'USD',
+        confirm: true
+      })
+      console.log(payment);
+      res.json({ msg: 'Payment made successfully', received: true })
+    } catch (e) {
+      res.json({ msg: 'Payment declined', received: false });
+    }
+}
+
+module.exports = payment;

@@ -15,10 +15,7 @@ const createCategory = require("./functions/createCategory.js");
 const deleteCategory = require("./functions/deleteCategory.js");
 const createModel = require("./functions/createModel.js");
 const createSneaker = require('./functions/createSneaker');
-const getModels = require("./functions/getModels.js");
-const getColors = require("./functions/getColors.js");
-const getMaterials = require("./functions/getMaterials.js");
-const getSizes = require("./functions/getSizes.js");
+const payment = require("./functions/payment.js");
 
 const router = Router();
 
@@ -46,6 +43,8 @@ router.get("/getSneakersCart/:id", getSneakersCart);
 router.post("/addonesneakercart", addOneSneakerCart);
 router.post("/addsneakerscart", addSneakersCart);
 
+//Payment
+router.post("/payment", payment);
 
 
 
