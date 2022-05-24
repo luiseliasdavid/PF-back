@@ -7,11 +7,12 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
+        },
+        deleted: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
         }
-        // deleted: {
-        //     type: Boolean,
-        //     default: false
-        // }
     }, {
         timestamps: false
     });

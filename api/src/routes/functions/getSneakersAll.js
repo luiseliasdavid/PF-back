@@ -1,8 +1,9 @@
-const { Sneaker} = require("../../db");
+const { Sneaker } = require("../../db");
 
 
-const getSneakersAll= async (req, res) => {
+const getSneakersAll = async (req, res) => {
     const sneaker = await Sneaker.findAll({
+        where: { deleted: false },
         attributes: { exclude: ['colorId', 'sizeId', 'modelId'] },
         include: { all: true, nested: true }
     });
@@ -11,4 +12,3 @@ const getSneakersAll= async (req, res) => {
 
 module.exports = getSneakersAll;
 
-  

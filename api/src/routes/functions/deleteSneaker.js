@@ -12,7 +12,7 @@ const deleteSneaker = async (req, res) => {
       if (productDelete.deleted) {
         res.status(404).send({ msg: "The sneaker has already been deleted" });
       }
-      const newStateProduct = await productDelete.set({ deleted: true })
+      const newStateProduct = await productDelete.update({ deleted: true })
       if (newStateProduct) {
         res.json({
           msg: "The sneaker has been deleted",

@@ -116,14 +116,14 @@ conn.sync({ force: true }).then(async () => {
 
 	//llendado user prueba mientras bajan de firebase
 	for await (let u of userTest) {
-		
+
 		await User.create({ nameUser: u.name, email: u.email, typeUser: u.type, password: u.password })
 	};
 
 	const port = process.env.PORT || 3001;
 
 	server.listen(port, () => {
-		console.log(`%s listening at ${port}` ); // eslint-disable-line no-console
+		console.log(`%s listening at ${port}`); // eslint-disable-line no-console
 	});
 });
 

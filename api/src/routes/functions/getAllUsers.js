@@ -2,8 +2,7 @@ const { User } = require('../../db')
 
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.findAll()
-    console.log(users)
+    const users = await User.findAll({ where: { deleted: false } })
     res.send(users)
 
   } catch (error) {

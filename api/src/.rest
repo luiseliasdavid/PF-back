@@ -14,7 +14,7 @@ http://localhost:3001/getUser
 
 ###
 
-DELETE http://localhost:3001/deleteUser/1
+PUT http://localhost:3001/deleteUser/1
 
 ###
 
@@ -125,4 +125,23 @@ https://node-api-sneakers.herokuapp.com/sizes
 
 ###
 
-PUT http://localhost:3001/deleteSneaker/
+
+
+PUT http://localhost:3001/deleteSneaker/8
+
+
+###
+
+GET  http://localhost:3001/sneaker/8
+
+###
+
+GET  http://localhost:3001/sneakers
+
+###
+
+PUT http://localhost:3001/deleteCategory/2
+
+###
+
+PUT http://localhost:3001/deleteModel/2

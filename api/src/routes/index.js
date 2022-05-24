@@ -20,14 +20,17 @@ const getModels = require("./functions/getModels")
 const getColors = require("./functions/getColors");
 const getMaterials = require("./functions/getMaterials")
 const getSizes = require("./functions/getSizes");
+const deleteSneaker = require("./functions/deleteSneaker.js");
+const deleteModel = require("./functions/deleteModel.js");
 
 const router = Router();
 
 
 //admin
 router.get("/getUser", getAllUsers)
-router.delete("/deleteUser/:id", deleteUser)
-router.delete("/deleteCat/:id", deleteCategory)
+router.put("/deleteUser/:id", deleteUser)
+router.put("/deleteCategory/:id", deleteCategory)
+router.put("/deleteModel/:id", deleteModel)
 router.post("/createCate", createCategory)
 router.post("/createModel", createModel)
 router.post("/createSneaker", createSneaker)
@@ -35,6 +38,7 @@ router.get("/getModels", getModels)
 router.get("/getColors", getColors)
 router.get("/materials", getMaterials)
 router.get("/sizes", getSizes)
+router.put("/deleteSneaker/:id", deleteSneaker)
 
 //users
 router.post("/user", createUser);

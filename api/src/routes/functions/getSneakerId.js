@@ -1,7 +1,7 @@
-const {Sneaker} = require("../../db");
+const { Sneaker } = require("../../db");
 
 const getSneakerId = async (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
     //brand, model, price, description, size, material, image.
     const sneaker = await Sneaker.findOne(
         {
@@ -23,6 +23,7 @@ const getSneakerId = async (req, res) => {
             color: jsonToObject.color.nameColor,
             description: jsonToObject.model.description,
             material: jsonToObject.model.material.nameMaterial,
+            deleted: jsonToObject.deleted,
             sizes: jsonToObject.model.sizes.map(size => {
                 return {
                     size: size.numberSize,
@@ -41,6 +42,5 @@ const getSneakerId = async (req, res) => {
     }
 }
 
-module.exports =getSneakerId;
- 
-  
+module.exports = getSneakerId;
+
