@@ -22,6 +22,7 @@ const getMaterials = require("./functions/getMaterials")
 const getSizes = require("./functions/getSizes");
 const deleteSneaker = require("./functions/deleteSneaker.js");
 const deleteModel = require("./functions/deleteModel.js");
+const updateSneaker = require("./functions/updateSneaker.js");
 
 const router = Router();
 
@@ -31,6 +32,7 @@ router.get("/getUser", getAllUsers)
 router.put("/deleteUser/:id", deleteUser)
 router.put("/deleteCategory/:id", deleteCategory)
 router.put("/deleteModel/:id", deleteModel)
+router.put("/updateSneak/:id", updateSneaker)
 router.post("/createCate", createCategory)
 router.post("/createModel", createModel)
 router.post("/createSneaker", createSneaker)

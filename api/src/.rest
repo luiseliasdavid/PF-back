@@ -132,11 +132,11 @@ PUT http://localhost:3001/deleteSneaker/8
 
 ###
 
-GET  http://localhost:3001/sneaker/8
+GET  http://localhost:3001/sneaker/15
 
 ###
 
-GET  http://localhost:3001/sneakers
+GET  http://localhost:3001/sneaker/5
 
 ###
 
@@ -145,3 +145,12 @@ PUT http://localhost:3001/deleteCategory/2
 ###
 
 PUT http://localhost:3001/deleteModel/2
+
+###
+
+PUT http://localhost:3001/updateSneak/5
+Content-Type: application/json
+
+{
+  "price": 700
+}
