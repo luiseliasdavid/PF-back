@@ -6,8 +6,12 @@ module.exports = (sequelize) => {
         nameCategory: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique:true
+            unique: true
         }
+        // deleted: {
+        //     type: Boolean,
+        //     default: false
+        // }
     }, {
         timestamps: false
     });

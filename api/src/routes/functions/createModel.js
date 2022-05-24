@@ -11,7 +11,7 @@ const createModel = async (req, res) => {
   });
 
   const mat = material.toJSON() || createdMaterial.toJSON();
-	const bra = brand.toJSON() || createdBrand.toJSON();
+  const bra = brand.toJSON() || createdBrand.toJSON();
 
   try {
     const model = await Model.create({
@@ -22,25 +22,25 @@ const createModel = async (req, res) => {
     });
 
     data.categories.forEach(async (category) => {
-			const [cat, created] = await Category.findOrCreate({
-				where: { nameCategory: category },
-			});
-			await model.addCategory(cat);
-		});
+      const [cat, created] = await Category.findOrCreate({
+        where: { nameCategory: category },
+      });
+      await model.addCategory(cat || created);
+    });
 
     data.sizes.forEach(async (size) => {
-			const [siz, created] = await Size.findOrCreate({
-				where: { numberSize: size.size },
-			});
-			await model.addSize(siz, { through: { stock: size.stock } });
-		});
+      const [siz, created] = await Size.findOrCreate({
+        where: { numberSize: size.size },
+      });
+      await model.addSize(siz || created, { through: { stock: size.stock } });
+    });
 
-    res.json({msg: `the model ${model.nameModel} has been created`, model: model})
+    res.json({ msg: `the model ${model.nameModel} has been created`, model: model })
 
   } catch (error) {
-      res.json({msg: error})
+    res.json({ msg: error })
   }
-  
+
 
 }
 

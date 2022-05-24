@@ -122,3 +122,7 @@ https://node-api-sneakers.herokuapp.com/sizes
 ###
 
  http://localhost:3001/sizes
+
+###
+
+PUT http://localhost:3001/deleteSneaker/
