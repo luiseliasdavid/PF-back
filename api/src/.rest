@@ -154,3 +154,18 @@ Content-Type: application/json
 {
   "price": 700
 }
+
+###
+
+POST https://node-api-sneakers.herokuapp.com/user
+Content-Type: application/json
+
+{
+ "name": "ana",
+ "email": "ana@gmail.com",
+ "password": "asklajsla"
+}
+
+###
+
+PUT http://localhost:3001/deleteUser/10

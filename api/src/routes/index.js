@@ -29,9 +29,9 @@ const router = Router();
 
 //admin
 router.get("/getUser", getAllUsers)
-router.delete("/deleteUser/:id", deleteUser)
-router.delete("/deleteCategory/:id", deleteCategory)
-router.delete("/deleteModel/:id", deleteModel)
+router.put("/deleteUser/:id", deleteUser)
+router.put("/deleteCategory/:id", deleteCategory)
+router.put("/deleteModel/:id", deleteModel)
 router.put("/updateSneaker/:id", updateSneaker)
 router.post("/createCate", createCategory)
 router.post("/createModel", createModel)
@@ -40,7 +40,7 @@ router.get("/getModels", getModels)
 router.get("/getColors", getColors)
 router.get("/materials", getMaterials)
 router.get("/sizes", getSizes)
-router.delete("/deleteSneaker/:id", deleteSneaker)
+router.put("/deleteSneaker/:id", deleteSneaker)
 
 //users
 router.post("/user", createUser);
