@@ -9,13 +9,12 @@ const deleteSneaker = async (req, res) => {
       if (!productDelete) {
         res.status(404).send({ msg: "The sneaker does not exist" });
       }
-      if (productDelete.deleted) {
-        res.status(404).send({ msg: "The sneaker has already been deleted" });
-      }
-      const newStateProduct = await productDelete.update({ deleted: true })
+      console.log(productDelete.deleted)
+      const newStateProduct = await productDelete.update({ deleted: (!productDelete.deleted) })
       if (newStateProduct) {
+        const show = productDelete.deleted ? "unavailable" : "available"
         res.json({
-          msg: "The sneaker has been deleted",
+          msg: `The sneaker status is ${show}` 
         });
       } else {
         res.status(404).send({ msg: `Something went wrong` })
