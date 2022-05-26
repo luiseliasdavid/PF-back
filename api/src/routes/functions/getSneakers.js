@@ -4,7 +4,6 @@ const { Sneaker } = require("../../db");
 const getSneakers = async (req, res) => {
 
     const sneaker = await Sneaker.findAll({
-        where: { deleted: false },
         attributes: { exclude: ['colorId', 'modelId'] },
         include: { all: true, nested: true }
     });
