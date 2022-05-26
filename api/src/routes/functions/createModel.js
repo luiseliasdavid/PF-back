@@ -30,7 +30,7 @@ const createModel = async (req, res) => {
 
     data.sizes.forEach(async (size) => {
       const [siz, created] = await Size.findOrCreate({
-        where: { numberSize: size.value },
+        where: { numberSize: size.name },
       });
       await model.addSize(siz || created, { through: { stock: size.stock } });
     });
