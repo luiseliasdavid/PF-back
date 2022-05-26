@@ -2,6 +2,7 @@ const { Router } = require("express");
 
 const addOneSneakerCart = require("./functions/addOneSneakerCart.js");
 const addSneakersCart = require("./functions/addSneakersCart.js");
+const addCart = require("./functions/addCart.js");
 const createUser = require("./functions/createUser.js");
 const getBrands = require("./functions/getBrands.js");
 const getCategories = require("./functions/getCategories.js");
@@ -25,7 +26,6 @@ const deleteModel = require("./functions/deleteModel.js");
 const updateSneaker = require("./functions/updateSneaker.js");
 
 const router = Router();
-
 
 //admin
 router.get("/getUser", getAllUsers)
@@ -52,10 +52,9 @@ router.get("/sneaker/:id", getSneakerId);
 router.get("/getSneakersCart/:id", getSneakersCart);
 router.post("/addonesneakercart", addOneSneakerCart);
 router.post("/addsneakerscart", addSneakersCart);
+router.post("/addcart", addCart);
 
 //Payment
 router.post("/payment", payment);
-
-
 
 module.exports = router;

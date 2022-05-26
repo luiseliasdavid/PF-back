@@ -14,12 +14,12 @@ const herokuDb = {
 }
 
 
-const sequelize = new Sequelize(`postgres://${herokuDb.user }:${herokuDb.password }@${herokuDb.host}/${herokuDb.name}`, {
+const sequelize = new Sequelize(`postgres://${herokuDb.user}:${herokuDb.password}@${herokuDb.host}/${herokuDb.name}`, {
   logging: false, // set to console.log to see the raw SQL queries
-  native: false, 
+  native: false,
   dialectOptions: DB_NAME || {
     ssl: {
-      require: true ,
+      require: true,
       rejectUnauthorized: false
     }
   }// lets Sequelize know we can use pg-native for ~30% more speed
@@ -48,7 +48,7 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Sneaker, Size, Color, Model, Material, Brand, Category, User,Order } = sequelize.models;
+const { Sneaker, Size, Color, Model, Material, Brand, Category, User, Order } = sequelize.models;
 
 
 //!Modelo a categorias(m:n)
@@ -79,12 +79,32 @@ Size.belongsToMany(Model, { through: ModelSize });
 
 //!Carrito de compra (m:n) User - Sneakers
 let Cart = sequelize.define('cart', {
+  size: {
+    type: DataTypes.FLOAT,
+    primaryKey: true,
+    allowNull: false,
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    allowNull: false,
+  },
+  sneakerId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    allowNull: false,
+  },
   quantity: {
     type: DataTypes.INTEGER,
     allowNull: false,
   }
 }, {
-  timestamps: false
+  timestamps: false,
+  uniqueKeys: {
+    cart_key: {
+      fields: ['userId', 'sneakerId', 'size']
+    }
+  }
 });
 User.belongsToMany(Sneaker, { through: Cart });
 Sneaker.belongsToMany(User, { through: Cart });
