@@ -3,7 +3,8 @@ const { Sneaker } = require("../../db")
 
 const updateSneaker = async (req, res) => {
   const { id } = req.params
-  const { price } = req.body
+  const props = req.body
+  console.log(props, 'aquiiiii')
   try {
     if (id) {
       const sneaker = await Sneaker.findByPk(id)
@@ -11,9 +12,9 @@ const updateSneaker = async (req, res) => {
         res.status(404).send({ msg: "The sneaker does not exist" });
       }
 
-      const newData = await sneaker.update({ price: price })
+      const newData = await sneaker.update(props)
+      console.log(newData)
       if (newData) {
-        console.log(newData)
         res.json({
           msg: "The sneaker has been updated",
         });
@@ -24,7 +25,6 @@ const updateSneaker = async (req, res) => {
   } catch (error) {
     res.status(404).send(error)
   }
-
 }
 
 module.exports = updateSneaker;
