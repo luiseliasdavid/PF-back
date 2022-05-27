@@ -20,15 +20,25 @@ const updateSneaker = async (req, res) => {
       await sneaker.save()
 
       const model = await Model.findByPk(1, {include: { all: true, nested: true }})
-
+      var newSizes = []
       props.sizes.forEach( n => {
+        newSizes.push(n)
         model.sizes.map(async(s, i) => {
           if(s.numberSize === n.numberSize){
+            newSizes = newSizes.filter(ns => ns.numberSize !== n.numberSize)
             await model.sizes[i].modelsize.update({stock: n.stock})
           }
         })
       });
-      
+
+      newSizes.map(async n => {
+        const [siz, created] = await Size.findOrCreate({
+          where: { numberSize: n.numberSize },
+        });
+        await model.addSize(siz || created, { through: { stock: n.stock } });
+      } )
+
+      console.log(newSizes)
       if (sneaker) {
         res.json({
           msg: "The sneaker has been updated",
