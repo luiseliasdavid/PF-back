@@ -30,13 +30,7 @@ conn.sync({ force: true }).then(async () => {
 
 
 	//!Llenndo tabla size
-	for await (let obj of data) {
-		obj.sizes.forEach(async (objsiz) => {
-			const [size, created] = await Size.findOrCreate({
-				where: { numberSize: objsiz.size }
-			})
-		})
-	};
+	
 
 	//!Llenando tabla categorías.
 	for await (let obj of data) {
