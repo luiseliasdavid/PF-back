@@ -26,14 +26,22 @@ const getSizes = require("./functions/getSizes");
 const deleteSneaker = require("./functions/deleteSneaker.js");
 const deleteModel = require("./functions/deleteModel.js");
 const updateSneaker = require("./functions/updateSneaker.js");
+const createOrder = require("./functions/createOrder.js");
+const getOrders = require("./functions/getOrders.js")
+const getOrdersById = require("./functions/getOrderById");
+const getUserById = require("./functions/getUserById.js");
+const getOrderByUser = require("./functions/getOrderByUser.js");
+const addReview = require("./functions/addReview.js");
+const getReviews = require("./functions/getReview.js");
 
 const router = Router();
 
 //admin
 router.get("/getUser", getAllUsers)
-router.delete("/deleteUser/:id", deleteUser)
-router.delete("/deleteCategory/:id", deleteCategory)
-router.delete("/deleteModel/:id", deleteModel)
+router.get("/getUserBy/:id", getUserById)
+router.put("/deleteUser/:id", deleteUser)
+router.put("/deleteCategory/:id", deleteCategory)
+router.put("/deleteModel/:id", deleteModel)
 router.put("/updateSneaker/:id", updateSneaker)
 router.post("/createCate", createCategory)
 router.post("/createModel", createModel)
@@ -42,7 +50,12 @@ router.get("/getModels", getModels)
 router.get("/getColors", getColors)
 router.get("/materials", getMaterials)
 router.get("/sizes", getSizes)
-router.delete("/deleteSneaker/:id", deleteSneaker)
+router.put("/deleteSneaker/:id", deleteSneaker)
+
+router.get("/getOrders", getOrders)
+router.get("/getOrders/:id", getOrdersById)
+router.get("/getOrdUser/:id", getOrderByUser)
+router.post("/createOrder", createOrder)
 
 //users
 router.post("/user", createUser);
@@ -60,5 +73,9 @@ router.post("/deletecart", deleteCart);
 
 //Payment
 router.post("/payment", payment);
+
+//review
+router.post("/review", addReview);
+router.get("/reviews/:id", getReviews);
 
 module.exports = router;
