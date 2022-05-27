@@ -4,11 +4,15 @@ const createCategory = async (req, res) => {
 
   const { nameCategory } = req.body
 
-  const category = await Category.create({
-    nameCategory
+  const [category, created] = await Category.findOrCreate({
+    where: { nameCategory: nameCategory }
   })
 
-  res.status(201).json(category)
+  if (created) {
+    res.send({ msg: "Se creó correctamente" });
+  } else {
+    res.send({ msg: "Ya se creó esa categoría anteriormente" });
+  }
 
 }
 
