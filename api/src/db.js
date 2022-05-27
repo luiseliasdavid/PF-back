@@ -88,11 +88,19 @@ let Cart = sequelize.define('cart', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     allowNull: false,
+    references: {
+      model: 'User',
+      key: 'id'
+    }
   },
   sneakerId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     allowNull: false,
+    references: {
+      model: 'Sneaker',
+      key: 'id'
+    }
   },
   quantity: {
     type: DataTypes.INTEGER,

@@ -3,6 +3,7 @@ const { Router } = require("express");
 const addOneSneakerCart = require("./functions/addOneSneakerCart.js");
 const addSneakersCart = require("./functions/addSneakersCart.js");
 const addCart = require("./functions/addCart.js");
+const getCart = require("./functions/getCart.js");
 const createUser = require("./functions/createUser.js");
 const getBrands = require("./functions/getBrands.js");
 const getCategories = require("./functions/getCategories.js");
@@ -53,6 +54,7 @@ router.get("/getSneakersCart/:id", getSneakersCart);
 router.post("/addonesneakercart", addOneSneakerCart);
 router.post("/addsneakerscart", addSneakersCart);
 router.post("/addcart", addCart);
+router.post("/getcart", getCart);
 
 //Payment
 router.post("/payment", payment);

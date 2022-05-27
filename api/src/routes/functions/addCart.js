@@ -15,7 +15,7 @@ const addCart = async (req, res) => {
 				where: {
 					userId: user.id,
 					sneakerId: sneaker.id,
-          size: product.size
+					size: product.size
 				}
 			});
 
@@ -35,7 +35,7 @@ const addCart = async (req, res) => {
 				);
 			}
 		});
-    
+
 		res.json({ message: `user's product's cart ${user.email} updated` });
 	} catch (error) {
 		res.status(500).json({ message: 'Error al agregar al carrito' });
