@@ -6,7 +6,8 @@ module.exports = (sequelize) => {
         // Model attributes are defined here
         state: {
             type: DataTypes.ENUM('created','processing','completed','canceled'),
-            allowNull: false
+            allowNull: false,
+            defaultValue: 'created'
         },
     
     });
