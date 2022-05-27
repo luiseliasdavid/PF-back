@@ -13,19 +13,19 @@
     },
     {
         "name": "nico",
-        "email": "nico@gmail.com",
+        "email": "ncsala@gmail.com",
         "password": "holis",
         "type":"admin"
     },
     {
         "name": "jesus",
-        "email": "jesus@gmail.com",
+        "email": "j.ulisesorea@gmail.com",
         "password": "holis",
         "type":"client"
     },
     {
         "name": "Andre",
-        "email": "andre@gmail.com",
+        "email": "avaldiviach@gmail.com",
         "password": "holis",
         "type":"client"
     },

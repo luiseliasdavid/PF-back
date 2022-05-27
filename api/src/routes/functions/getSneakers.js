@@ -21,6 +21,7 @@ const getSneakers = async (req, res) => {
             image: element.image,
             color: element.color.nameColor,
             description: element.model.description,
+            rating: element.rating,
             deleted: element.deleted,
             material: element.model.material.nameMaterial,
             sizes: element.model.sizes.map(size => {

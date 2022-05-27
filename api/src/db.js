@@ -48,8 +48,7 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Sneaker, Size, Color, Model, Material, Brand, Category, User, Order } = sequelize.models;
-
+const { Sneaker, Size, Color, Model, Material, Brand, Category, User, Order, Review } = sequelize.models;
 
 //!Modelo a categorias(m:n)
 Model.belongsToMany(Category, { through: "model_category", timestamps: false });
@@ -79,12 +78,40 @@ Size.belongsToMany(Model, { through: ModelSize });
 
 //!Carrito de compra (m:n) User - Sneakers
 let Cart = sequelize.define('cart', {
+  size: {
+    type: DataTypes.FLOAT,
+    primaryKey: true,
+    allowNull: false,
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    allowNull: false,
+    references: {
+      model: 'User',
+      key: 'id'
+    }
+  },
+  sneakerId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    allowNull: false,
+    references: {
+      model: 'Sneaker',
+      key: 'id'
+    }
+  },
   quantity: {
     type: DataTypes.INTEGER,
     allowNull: false,
   }
 }, {
-  timestamps: false
+  timestamps: false,
+  uniqueKeys: {
+    cart_key: {
+      fields: ['userId', 'sneakerId', 'size']
+    }
+  }
 });
 User.belongsToMany(Sneaker, { through: Cart });
 Sneaker.belongsToMany(User, { through: Cart });
@@ -114,6 +141,14 @@ Color.hasMany(Sneaker);
 //!Sneaker a modelo
 Sneaker.belongsTo(Model);
 Model.hasMany(Sneaker);
+
+//!Review 
+User.hasMany(Review,{ foreignKey: "userId" });
+Review.belongsTo(User, { foreignKey: "userId" });
+
+Sneaker.hasMany(Review,{ foreignKey: "sneakerId" });
+Review.belongsTo(Sneaker,{ foreignKey: "sneakerId" });
+
 
 module.exports = {
   Cart,
