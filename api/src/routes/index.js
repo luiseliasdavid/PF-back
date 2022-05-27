@@ -16,7 +16,7 @@ const deleteCategory = require("./functions/deleteCategory.js");
 const createModel = require("./functions/createModel.js");
 const createSneaker = require('./functions/createSneaker');
 const payment = require("./functions/payment.js");
-// const emailer= require("./functions/emailer.js");
+ const{ emailer}= require("./functions/emailer.js");
 const getModels = require("./functions/getModels")
 const getColors = require("./functions/getColors");
 const getMaterials = require("./functions/getMaterials")
@@ -69,7 +69,7 @@ router.post("/addsneakerscart", addSneakersCart);
 router.post("/payment", payment);
 
 //mailer
-// router.post("/send-email",emailer);
+ router.post("/send-email",emailer);
 
 
 
