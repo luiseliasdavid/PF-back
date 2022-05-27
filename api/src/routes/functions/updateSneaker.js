@@ -16,16 +16,19 @@ const updateSneaker = async (req, res) => {
       }
 
       // const newData = await sneaker.update({price: props.price})
-      sneaker.price = props.price;
-      await sneaker.save()
+      if (props.price) {
+        sneaker.price = props.price;
+        await sneaker.save()
+      }
+      
 
-      const model = await Model.findByPk(1, {include: { all: true, nested: true }})
+      const model = await Model.findByPk(sneaker.model.id, {include: { all: true, nested: true }})
       var newSizes = []
       props.sizes.forEach( n => {
         newSizes.push(n)
         model.sizes.map(async(s, i) => {
-          if(s.numberSize === n.numberSize){
-            newSizes = newSizes.filter(ns => ns.numberSize !== n.numberSize)
+          if(s.numberSize == n.numberSize){
+            newSizes = newSizes.filter(ns => ns.numberSize != n.numberSize)
             await model.sizes[i].modelsize.update({stock: n.stock})
           }
         })
