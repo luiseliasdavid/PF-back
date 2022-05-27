@@ -1,7 +1,13 @@
 [
     {
         "name": "esteban",
-        "email": "esteban@gmail.com",
+        "email": "tecnicoesteban01@gmail.com",
+        "password": "holis",
+        "type":"admin"
+    },
+    {
+        "name": "Ana paula",
+        "email": "amapaulacortesibarra@gmail.com",
         "password": "holis",
         "type":"admin"
     },
@@ -31,7 +37,7 @@
     },
     {
         "name": "juan",
-        "email": "juan@gmail.com",
+        "email": "juanoriquero@gmail.com",
         "password": "holis",
         "type":"admin"
     },
