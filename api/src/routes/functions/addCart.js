@@ -20,7 +20,7 @@ const addCart = async (req, res) => {
 					},
 				});
 
-				if (!existe.length) {
+				if (!existe) {
 					console.log('ENTREEE A CREAR');
 					await Cart.create({
 						quantity: product.qty,
