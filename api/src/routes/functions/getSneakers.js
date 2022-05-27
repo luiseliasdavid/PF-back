@@ -1,7 +1,7 @@
-const { Sneaker} = require("../../db");
+const { Sneaker } = require("../../db");
 
 
-const getSneakers= async (req, res) => {
+const getSneakers = async (req, res) => {
 
     const sneaker = await Sneaker.findAll({
         attributes: { exclude: ['colorId', 'modelId'] },
@@ -21,6 +21,7 @@ const getSneakers= async (req, res) => {
             image: element.image,
             color: element.color.nameColor,
             description: element.model.description,
+            deleted: element.deleted,
             material: element.model.material.nameMaterial,
             sizes: element.model.sizes.map(size => {
                 return {
@@ -39,6 +40,5 @@ const getSneakers= async (req, res) => {
     res.json(arraySneaker);
 }
 
-module.exports =getSneakers;
+module.exports = getSneakers;
 
-  
