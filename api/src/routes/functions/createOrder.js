@@ -11,7 +11,7 @@ async function createOrder(req, res) {
   
     if (user) {
       console.log(date)
-      const newOrder = await Order.create({ userId: user.id, address, products, nameUser:user.nameUser ,total, date: date, state: "Pending" });
+      const newOrder = await Order.create({ userId: user.id, address:address, products:products, nameUser:user.nameUser ,total:total, date: date, state: "Pending" });
       res.status(201).send(newOrder);
       
     }
