@@ -9,6 +9,10 @@ module.exports = (sequelize) => {
             defaultValue: 'Pending',
             allowNull: false
         },
+        nameUser: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false
