@@ -148,9 +148,57 @@ PUT http://localhost:3001/deleteModel/2
 
 ###
 
-PUT http://localhost:3001/updateSneak/5
+PUT http://localhost:3001/updateSneaker/5
 Content-Type: application/json
 
 {
-  "price": 700
+  "material": "cloth",
+  "price": 7000
+
 }
+
+###
+
+POST https://node-api-sneakers.herokuapp.com/user
+Content-Type: application/json
+
+{
+ "name": "ana",
+ "email": "ana@gmail.com",
+ "password": "asklajsla"
+}
+
+###
+
+PUT http://localhost:3001/deleteUser/10
+
+###
+
+GET http://localhost:3001/sneaker/5
+
+###
+
+POST http://localhost:3001/createOrder
+Content-Type: application/json
+
+{
+"userId": 9,
+"address": "ana",
+"total": 256056565,
+"email": "mateo@gmail.com",
+"date": "12/95/22"
+}
+
+###
+
+GET http://localhost:3001/getOrders
+
+###
+
+GET http://localhost:3001/getUserBy/2
+
+###
+
+GET http://localhost:3001/getOrdUser/9
+
+

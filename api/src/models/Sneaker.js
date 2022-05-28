@@ -11,6 +11,11 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        rating:{
+            type: DataTypes.FLOAT,
+            defaultValue: 0,
+            allowNull: false
+        },
         deleted: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

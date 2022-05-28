@@ -1,7 +1,13 @@
 [
     {
         "name": "esteban",
-        "email": "esteban@gmail.com",
+        "email": "tecnicoesteban01@gmail.com",
+        "password": "holis",
+        "type":"admin"
+    },
+    {
+        "name": "Ana paula",
+        "email": "anapaulacortesibarra@gmail.com",
         "password": "holis",
         "type":"admin"
     },
@@ -13,25 +19,25 @@
     },
     {
         "name": "nico",
-        "email": "nico@gmail.com",
+        "email": "ncsala@gmail.com",
         "password": "holis",
         "type":"admin"
     },
     {
         "name": "jesus",
-        "email": "jesus@gmail.com",
+        "email": "j.ulisesorea@gmail.com",
         "password": "holis",
         "type":"client"
     },
     {
         "name": "Andre",
-        "email": "andre@gmail.com",
+        "email": "avaldiviach@gmail.com",
         "password": "holis",
         "type":"client"
     },
     {
         "name": "juan",
-        "email": "juan@gmail.com",
+        "email": "juanoriquero@gmail.com",
         "password": "holis",
         "type":"admin"
     },

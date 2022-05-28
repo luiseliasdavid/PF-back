@@ -4,7 +4,8 @@ module.exports = (sequelize) => {
     sequelize.define('size', {
         numberSize: {
             type: DataTypes.FLOAT,
-            allowNull: false
+            allowNull: false,
+            unique: true
         }
     }, {
         timestamps: false

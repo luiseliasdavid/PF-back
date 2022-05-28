@@ -23,14 +23,14 @@ const createModel = async (req, res) => {
 
     data.categories.forEach(async (category) => {
       const [cat, created] = await Category.findOrCreate({
-        where: { nameCategory: category },
+        where: { nameCategory: category.value },
       });
       await model.addCategory(cat || created);
     });
 
     data.sizes.forEach(async (size) => {
       const [siz, created] = await Size.findOrCreate({
-        where: { numberSize: size.size },
+        where: { numberSize: size.name },
       });
       await model.addSize(siz || created, { through: { stock: size.stock } });
     });
