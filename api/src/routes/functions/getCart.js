@@ -4,7 +4,7 @@ const getCart = async (req, res) => {
   const { email } = req.body;
   try {
     const user = await User.findOne({
-      where: { email },
+      where: { email: email },
     });
     const cart = await Cart.findAll({
       where: {
