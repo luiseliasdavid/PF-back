@@ -1,13 +1,17 @@
 const { Order, User } = require("../../db")
+var dateTime = require('node-datetime');
 
 async function createOrder(req, res) {
+  let dt = dateTime.create();
+  const date = dt.format('d-m-Y H:M:S');
   try {
-    const { email, address, products, total, date } = req.body
+    const { email, address, products, total } = req.body
 
     const user = await User.findOne({where: {email: email}});
-
+  
     if (user) {
-      const newOrder = await Order.create({ userId: user.id, address, products, nameUser:user.nameUser ,total, date, state: "Pending" });
+      console.log(date)
+      const newOrder = await Order.create({ userId: user.id, address, products, nameUser:user.nameUser ,total, date: date, state: "Pending" });
       res.status(201).send(newOrder);
       
     }
