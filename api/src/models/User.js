@@ -3,6 +3,11 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
     sequelize.define('user', {
         // Model attributes are defined here
+         id:{
+            type: DataTypes.STRING,
+            primaryKey: true,
+            allowNull: false
+        },
         nameUser: {
             type: DataTypes.STRING,
             allowNull: false
@@ -18,7 +23,7 @@ module.exports = (sequelize) => {
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         deleted: {
             type: DataTypes.BOOLEAN,

@@ -33,6 +33,7 @@ const getUserById = require("./functions/getUserById.js");
 const getOrderByUser = require("./functions/getOrderByUser.js");
 const addReview = require("./functions/addReview.js");
 const getReviews = require("./functions/getReview.js");
+const getRole = require("./functions/getRole.js");
 
 const router = Router();
 
@@ -77,5 +78,7 @@ router.post("/payment", payment);
 //review
 router.post("/review", addReview);
 router.get("/reviews/:id", getReviews);
+
+router.get("/role/:id", getRole);
 
 module.exports = router;
