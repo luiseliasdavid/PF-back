@@ -5,6 +5,10 @@ const express = require('express');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
 const server = express();
+const cors =require( "cors")
+
+server.use(cors());
+server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 server.name = 'API';
 server.use(express.json());
@@ -18,7 +22,6 @@ server.use((req, res, next) => {
 });
 
 server.use('/', routes);
-
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const status = err.status || 500;
