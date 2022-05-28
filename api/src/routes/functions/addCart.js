@@ -3,6 +3,7 @@ const { User, Sneaker, Cart } = require('../../db');
 const addCart = async (req, res) => {
 	const { email, productData } = req.body;
 	try {
+		console.log(email)
 		const user = await User.findOne({
 			where: { email },
 		});
@@ -20,7 +21,7 @@ const addCart = async (req, res) => {
 					},
 				});
 
-				if (!existe) {
+				if (!existe.length) {
 					console.log('ENTREEE A CREAR');
 					await Cart.create({
 						quantity: product.qty,
