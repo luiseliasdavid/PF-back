@@ -7,45 +7,50 @@ const addCart = async (req, res) => {
 		const user = await User.findOne({
 			where: { email },
 		});
-		productData.map(async (product) => {
-			try {
-				const sneaker = await Sneaker.findOne({
-					where: { id: product.sneakerId },
-				});
-
-				const existe = await Cart.findAll({
-					where: {
-						userId: user.id,
-						sneakerId: sneaker.id,
-						size: product.size,
-					},
-				});
-
-				if (!existe.length) {
-					console.log('ENTREEE A CREAR');
-					await Cart.create({
-						quantity: product.qty,
-						size: product.size,
-						userId: user.id,
-						sneakerId: sneaker.id,
+		if (user) {
+			productData.map(async (product) => {
+				try {
+					const sneaker = await Sneaker.findOne({
+						where: { id: product.sneakerId },
 					});
-				} else {
-					console.log('ENTREEE A ACTUALIZAR');
-					await Cart.update(
-						{ quantity: product.qty },
-						{
-							where: {
-								userId: user.id,
-								sneakerId: sneaker.id,
-								size: product.size,
-							},
-						}
-					);
+	
+					const existe = await Cart.findAll({
+						where: {
+							userId: user.id,
+							sneakerId: sneaker.id,
+							size: product.size,
+						},
+					});
+	
+					if (!existe.length) {
+						console.log('ENTREEE A CREAR');
+						await Cart.create({
+							quantity: product.qty,
+							size: product.size,
+							userId: user.id,
+							sneakerId: sneaker.id,
+						});
+					} else {
+						console.log('ENTREEE A ACTUALIZAR');
+						await Cart.update(
+							{ quantity: product.qty },
+							{
+								where: {
+									userId: user.id,
+									sneakerId: sneaker.id,
+									size: product.size,
+								},
+							}
+						);
+					}
+				} finally {
+					console.log('error interno');
 				}
-			} finally {
-				console.log('error interno');
-			}
-		});
+			})
+		}else{
+			res.json({msg: `user ${email} is a error`})
+		}
+		;
 
 		res.json({ message: `user's product's cart ${user.email} updated` });
 	} catch (error) {
