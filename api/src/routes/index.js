@@ -33,6 +33,7 @@ const getUserById = require("./functions/getUserById.js");
 const getOrderByUser = require("./functions/getOrderByUser.js");
 const addReview = require("./functions/addReview.js");
 const getReviews = require("./functions/getReview.js");
+const updateOrder = require("./functions/updateOrder")
 
 const router = Router();
 
@@ -56,6 +57,8 @@ router.get("/getOrders", getOrders)
 router.get("/getOrders/:id", getOrdersById)
 router.get("/getOrdUser/:id", getOrderByUser)
 router.post("/createOrder", createOrder)
+router.put("/updateOrder/:id", updateOrder)
+
 
 //users
 router.post("/user", createUser);

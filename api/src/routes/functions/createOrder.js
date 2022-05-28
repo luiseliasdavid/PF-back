@@ -2,8 +2,8 @@ const { Order } = require("../../db")
 
 async function createOrder(req, res) {
   try {
-    const { userId, address, products, total, date, email } = req.body
-    const newOrder = await Order.create({ userId, address, products, total, email, date, status: "Pending" });
+    const { userId, address, products, total, date } = req.body
+    const newOrder = await Order.create({ userId, address, products, total, date, state: "Pending" });
 
     res.status(201).send(newOrder);
 
