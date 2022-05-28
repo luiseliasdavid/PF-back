@@ -79,7 +79,6 @@ router.post("/deletecart", deleteCart);
 router.post("/payment", payment);
 
 //mailer
- router.post("/send-email",emailer);
 
 
 //review
