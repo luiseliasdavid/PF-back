@@ -11,7 +11,7 @@ const updateOrderToCompl =async (req, res) => {
     if (order) {
       // actualizando status
       order.state = newStatus;
-      order.save;
+      await order.save();
 
       //extrayendo id cliente para mandar email
       const user = await User.findByPk(order.userId)
