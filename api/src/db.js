@@ -84,7 +84,7 @@ let Cart = sequelize.define('cart', {
     allowNull: false,
   },
   userId: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     primaryKey: true,
     allowNull: false,
     references: {
