@@ -111,7 +111,7 @@ conn.sync({ force: true }).then(async () => {
 	//llendado user prueba mientras bajan de firebase
 	for await (let u of userTest) {
 
-		await User.create({ nameUser: u.name, email: u.email, typeUser: u.type, password: u.password })
+		await User.create({id:u.id, nameUser: u.name, email: u.email, typeUser: u.type, password: u.password })
 	};
 
 	const port = process.env.PORT || 3001;

@@ -12,10 +12,10 @@ module.exports = (sequelize) => {
             allowNull: false,
         },
         rating:{
-            type: DataTypes.SMALLINT,
+            type: DataTypes.FLOAT,
             defaultValue: 1,
         },
     }, {
-        timestamps: false
+        timestamps: true
     })
 }

@@ -1,5 +1,4 @@
 const { Router } = require("express");
-
 const addOneSneakerCart = require("./functions/addOneSneakerCart.js");
 const addSneakersCart = require("./functions/addSneakersCart.js");
 const addCart = require("./functions/addCart.js");
@@ -35,6 +34,8 @@ const getOrderByUser = require("./functions/getOrderByUser.js");
 const addReview = require("./functions/addReview.js");
 const getReviews = require("./functions/getReview.js");
 const updateOrder = require("./functions/updateOrder")
+const getRole = require("./functions/getRole.js");
+const decodeToken = require("../middleware/auth");
 
 const router = Router();
 
@@ -84,5 +85,7 @@ router.post("/payment", payment);
 //review
 router.post("/review", addReview);
 router.get("/reviews/:id", getReviews);
+
+router.get("/role/:id", getRole);
 
 module.exports = router;
