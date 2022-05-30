@@ -12,3 +12,7 @@ Content-Type: application/json
 ###
 
 http://localhost:3001/getUser
+
+###
+
+http://localhost:3001/sneakers

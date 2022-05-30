@@ -419,5 +419,28 @@
         "category": [
                 "lifestyle"
         ]
+    },
+        {
+        "brand": "Nike",
+        "model": "Air Zoom Pegasus",
+        "color": "blue",
+        "sizes": [
+            {
+                "size": 37.5,
+                "stock": 5
+            },
+            {
+                "size": 32.5,
+                "stock": 7
+            }
+        ],
+        "material": "cloth",
+        "description": "Blue nike sneakers for running",
+        "stock": 8,
+        "price": 250,
+        "image": "https://images.stockx.com/images/Nike-Air-Zoom-Pegasus-32-Blue-Lagoon-Black-Bright-Citrus-Total-Orange.jpg?fit=fill&bg=FFFFFF&w=480&h=320&fm=avif&auto=compress&dpr=1&trim=color&updated_at=1627414862&q=80",
+        "category": [
+                "running"
+        ]
     }
 ]
