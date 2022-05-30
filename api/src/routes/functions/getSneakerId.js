@@ -24,6 +24,7 @@ const getSneakerId = async (req, res) => {
             description: jsonToObject.model.description,
             material: jsonToObject.model.material.nameMaterial,
             deleted: jsonToObject.deleted,
+            rating: jsonToObject.rating,
             sizes: jsonToObject.model.sizes.map(size => {
                 return {
                     size: size.numberSize,
