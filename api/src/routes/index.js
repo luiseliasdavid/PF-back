@@ -18,7 +18,6 @@ const deleteCategory = require("./functions/deleteCategory.js");
 const createModel = require("./functions/createModel.js");
 const createSneaker = require('./functions/createSneaker');
 const payment = require("./functions/payment.js");
- const{ emailer}= require("./functions/emailer.js");
 const getModels = require("./functions/getModels")
 const getColors = require("./functions/getColors");
 const getMaterials = require("./functions/getMaterials")
@@ -33,12 +32,9 @@ const getUserById = require("./functions/getUserById.js");
 const getOrderByUser = require("./functions/getOrderByUser.js");
 const addReview = require("./functions/addReview.js");
 const getReviews = require("./functions/getReview.js");
-<<<<<<< HEAD
 const updateOrder = require("./functions/updateOrder")
-=======
 const getRole = require("./functions/getRole.js");
 const decodeToken = require("../middleware/auth");
->>>>>>> 8339c1e5990d3e8fa4ed45cd6a5d596c0a4a4813
 
 const router = Router();
 
