@@ -1,4 +1,4 @@
-const {Category} = require("../../db");
+const { Category } = require("../../db");
 
 const getCategories = async (req, res) => {
     const categories = await Category.findAll();
@@ -6,5 +6,4 @@ const getCategories = async (req, res) => {
 }
 
 module.exports = getCategories;
-  
-  
+

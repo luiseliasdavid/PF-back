@@ -10,6 +10,16 @@ module.exports = (sequelize) => {
         image: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        rating:{
+            type: DataTypes.FLOAT,
+            defaultValue: 0,
+            allowNull: false
+        },
+        deleted: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
         }
     }, {
         timestamps: false

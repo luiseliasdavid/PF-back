@@ -18,8 +18,9 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
-const { conn, Sneaker, Color, Size, Model, Brand, Material, Category, Modelsize } = require('./src/db.js');
+const { conn, Sneaker, Color, Size, Model, Brand, Material, Category, Modelsize, User } = require('./src/db.js');
 const data = require('./data.json');
+const userTest = require('./users.json')
 const { Op } = require('sequelize');
 
 // Syncing all the models at once.
@@ -29,13 +30,7 @@ conn.sync({ force: true }).then(async () => {
 
 
 	//!Llenndo tabla size
-	for await (let obj of data) {
-		obj.sizes.forEach(async (objsiz) => {
-			const [size, created] = await Size.findOrCreate({
-				where: { numberSize: objsiz.size }
-			})
-		})
-	};
+	
 
 	//!Llenando tabla categorías.
 	for await (let obj of data) {
@@ -113,10 +108,16 @@ conn.sync({ force: true }).then(async () => {
 		await Sneaker.create({ price: obj.price, image: obj.image, colorId: col.id, modelId: mod.id })
 	};
 
+	//llendado user prueba mientras bajan de firebase
+	for await (let u of userTest) {
+
+		await User.create({id:u.id, nameUser: u.name, email: u.email, typeUser: u.type, password: u.password })
+	};
+
 	const port = process.env.PORT || 3001;
 
 	server.listen(port, () => {
-		console.log(`%s listening at ${port}` ); // eslint-disable-line no-console
+		console.log(`%s listening at ${port}`); // eslint-disable-line no-console
 	});
 });
 

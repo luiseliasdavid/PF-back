@@ -1,0 +1,204 @@
+http://localhost:3001/sneakers
+
+###
+
+http://localhost:3001/categories
+
+###
+
+http://localhost:3001/getModels
+
+###
+
+http://localhost:3001/getUser
+
+###
+
+PUT http://localhost:3001/deleteUser/1
+
+###
+
+DELETE http://localhost:3001/deleteCat/11
+
+###
+
+POST http://localhost:3001/createCate
+Content-Type: application/json
+
+{
+ "nameCategory": "swimming"
+}
+
+###
+
+POST http://localhost:3001/user
+Content-Type: application/json
+
+{
+ "name": "ana",
+ "email": "ana@gmail.com",
+ "password": "asklajsla"
+}
+
+###
+
+POST http://localhost:3001/createProduct
+Content-Type: application/json
+
+{
+  "model": "ana",
+  "price": 250,
+  "match": "ana-tall",
+  "image": "ajskjas.jpg",
+  "color": "orange",
+  "description": "great sneaker",
+  "material": "silk"
+}
+
+###
+
+POST https://node-api-sneakers.herokuapp.com/user
+Content-Type: application/json
+
+{
+ "name": "mateo",
+ "email": "mateo@gmail.com",
+ "password": "asklajsla"
+}
+
+###
+
+POST https://node-api-sneakers.herokuapp.com/user
+Content-Type: application/json
+
+{
+ "name": "anap",
+ "email": "anap@gmail.com",
+ "password": "holis"
+}
+
+###
+
+https://node-api-sneakers.herokuapp.com/categories
+
+
+###
+
+POST https://node-api-sneakers.herokuapp.com/createCate
+Content-Type: application/json
+
+{
+ "nameCategory": "swimming"
+}
+
+###
+
+GET https://node-api-sneakers.herokuapp.com/getModels
+
+###
+
+GET https://node-api-sneakers.herokuapp.com/getColors
+
+###
+
+ http://localhost:3001/getColors
+
+###
+
+GET https://node-api-sneakers.herokuapp.com/brands
+
+###
+
+GET https://node-api-sneakers.herokuapp.com/Materials
+
+###
+
+ http://localhost:3001/materials
+
+###
+
+https://node-api-sneakers.herokuapp.com/sizes
+
+###
+
+ http://localhost:3001/sizes
+
+###
+
+
+
+PUT http://localhost:3001/deleteSneaker/8
+
+
+###
+
+GET  http://localhost:3001/sneaker/15
+
+###
+
+GET  http://localhost:3001/sneaker/5
+
+###
+
+PUT http://localhost:3001/deleteCategory/2
+
+###
+
+PUT http://localhost:3001/deleteModel/2
+
+###
+
+PUT http://localhost:3001/updateSneaker/5
+Content-Type: application/json
+
+{
+  "material": "cloth",
+  "price": 7000
+
+}
+
+###
+
+POST https://node-api-sneakers.herokuapp.com/user
+Content-Type: application/json
+
+{
+ "name": "ana",
+ "email": "ana@gmail.com",
+ "password": "asklajsla"
+}
+
+###
+
+PUT http://localhost:3001/deleteUser/10
+
+###
+
+GET http://localhost:3001/sneaker/5
+
+###
+
+POST http://localhost:3001/createOrder
+Content-Type: application/json
+
+{
+"userId": 9,
+"address": "ana",
+"total": 256056565,
+"email": "mateo@gmail.com",
+"date": "12/95/22"
+}
+
+###
+
+GET http://localhost:3001/getOrders
+
+###
+
+GET http://localhost:3001/getUserBy/2
+
+###
+
+GET http://localhost:3001/getOrdUser/9
+
+
