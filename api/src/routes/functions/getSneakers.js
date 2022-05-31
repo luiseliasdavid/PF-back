@@ -17,6 +17,7 @@ const getSneakers = async (req, res) => {
             model: element.model.nameModel,
             brand: element.model.brand.nameBrand,
             price: element.price,
+            discountPrice: element.discountPrice,
             match: `${element.model.brand.nameBrand}-${element.model.nameModel}-${element.color.nameColor}`,
             image: element.image,
             color: element.color.nameColor,

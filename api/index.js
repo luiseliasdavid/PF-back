@@ -108,11 +108,7 @@ conn.sync({ force: true }).then(async () => {
 		await Sneaker.create({ price: obj.price, image: obj.image, colorId: col.id, modelId: mod.id })
 	};
 
-	//llendado user prueba mientras bajan de firebase
-	for await (let u of userTest) {
-
-		await User.create({id:u.id, nameUser: u.name, email: u.email, typeUser: u.type, password: u.password })
-	};
+	//llendado user prueba mientras bajan de firebas
 
 	const port = process.env.PORT || 3001;
 

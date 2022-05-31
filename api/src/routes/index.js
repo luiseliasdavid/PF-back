@@ -35,6 +35,7 @@ const getReviews = require("./functions/getReview.js");
 const updateOrder = require("./functions/updateOrder")
 const getRole = require("./functions/getRole.js");
 const decodeToken = require("../middleware/auth");
+const addDiscount = require("./functions/addDiscount.js");
 
 const router = Router();
 
@@ -86,7 +87,8 @@ router.post("/deletecart", deleteCart);
 //Payment
 router.post("/payment", payment);
 
-//mailer
+//discount
+router.post("/addDiscount/:id", addDiscount)
 
 
 //review
