@@ -36,20 +36,19 @@ const addOneSneakerCart = async (req,res)=>{
 
     console.log('con descuento',sneaker.discountPrice)
 
-    // if (days <= 32 && days > 0) {
-    //     if(hours <= 23){
-    //         cron.schedule(`* */${hours}/${days} * *`,() => restoreD(id))
-    //     }else{
-    //         cron.schedule(`* * */${days} * *`,() => restoreD(id))
+    if (days <= 32 && days > 0) {
+        if(hours <= 23){
+            cron.schedule(`* * ${hours} ${days} * *`,() => restoreD(id))
+        }else{
+            cron.schedule(`* * * ${days} * *`,() => restoreD(id))
 
-    //     }
-    // }else{
-    //     if (hours <= 23 && hours > 0) {
-    //         cron.schedule(`* */${hours} * * *`,() => restoreD(id))
-    //     }
-    // }
+        }
+    }else{
+        if (hours <= 23 && hours > 0) {
+            cron.schedule(`* * ${hours} * * *`,() => restoreD(id))
+        }
+    }
 
-    cron.schedule('*/2 * * * *',() => restoreD(id))
 
 
     res.send('Producto agregado')
