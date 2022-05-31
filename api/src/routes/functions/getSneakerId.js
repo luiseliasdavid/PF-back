@@ -18,6 +18,7 @@ const getSneakerId = async (req, res) => {
             model: jsonToObject.model.nameModel,
             brand: jsonToObject.model.brand.nameBrand,
             price: jsonToObject.price,
+            discountPrice: jsonToObject.discountPrice,
             match: `${jsonToObject.model.brand.nameBrand}-${jsonToObject.model.nameModel}-${jsonToObject.color.nameColor}`,
             image: jsonToObject.image,
             color: jsonToObject.color.nameColor,
