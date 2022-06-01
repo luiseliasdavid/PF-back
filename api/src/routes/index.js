@@ -47,10 +47,10 @@ const router = Router();
 
 //admin
 router.get("/getUser", ProtectedRoute, getAllUsers)//middleware**+
-//router.get("/getUserBy/:id", ProtectedRoute, getUserById)//middleware----------------------
+router.get("/getUserBy/:id", ProtectedRoute, getUserById)//middleware----------------------
 router.put("/deleteUser/:id", ProtectedRoute, deleteUser)//middleware**+
 router.put("/deleteCategory/:id", ProtectedRoute, deleteCategory)//middleware**+
-//router.put("/deleteModel/:id", ProtectedRoute, deleteModel)//middleware--------------------
+router.put("/deleteModel/:id", ProtectedRoute, deleteModel)//middleware--------------------
 router.put("/updateSneaker/:id", ProtectedRoute, updateSneaker)//middleware**+
 router.post("/createCate", ProtectedRoute, createCategory)//middleware**+
 router.post("/createModel", ProtectedRoute, createModel)//middleware**+
@@ -64,7 +64,7 @@ router.put("/updateUser/:id", switchRole);
 
 router.get("/getOrders", ProtectedRoute, getOrders)//middleware**
 router.get("/getOrders/:id", ProtectedRoute, getOrdersById)//middleware**
-//router.get("/getOrdUser/:id", ProtectedRoute, getOrderByUser)//middleware-------No funcional
+router.get("/getOrdUser/:id", getOrderByUser)//middleware-------No funcional
 router.post("/createOrder", ProtectedRoute, createOrder)//middleware**+
 router.put("/updateOrder/:id",ProtectedRoute, updateOrder)//middleware**+
 
@@ -76,15 +76,15 @@ router.get("/sneakersall", getSneakersAll);
 router.get("/brands", getBrands);
 router.get("/categories", getCategories);
 router.get("/sneaker/:id", getSneakerId);
-// router.get("/getSneakersCart/:id",ProtectedRoute, getSneakersCart);//middleware------------
-// router.post("/addonesneakercart", addOneSneakerCart);//check--------------
-// router.post("/addsneakerscart", addSneakersCart);//check---------
-// router.post("/addcart",ProtectedRoute, addCart);//middleware------------------
-// router.post("/getcart",ProtectedRoute, getCart);//middleware------------------
+router.get("/getSneakersCart/:id",ProtectedRoute, getSneakersCart);//middleware------------
+router.post("/addonesneakercart", addOneSneakerCart);//check--------------
+router.post("/addsneakerscart", addSneakersCart);//check---------
+router.post("/addcart",ProtectedRoute, addCart);//middleware------------------
+router.post("/getcart",ProtectedRoute, getCart);//middleware------------------
 router.post("/deletecart",ProtectedRoute, deleteCart);//middleware**+
 
 //FirebaseAdmin
-router.put("/updatedDisableUser", ProtectedRoute, updatedDisableUser);//middleware**
+router.put("/updatedDisableUser/:id", ProtectedRoute, updatedDisableUser);//middleware**
 
 //Payment
 router.post("/payment", payment);//middleware
