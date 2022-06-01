@@ -38,31 +38,32 @@ const decodeToken = require("../middleware/auth");
 const updatedDisableUser = require("./functions/updatedDisableUser.js");
 const createHot = require("./functions/postCounter.js");
 const switchRole = require("./functions/switchRole.js");
+const ProtectedRoute = require("../middleware/auth");
 
 const router = Router();
 
 //admin
-router.get("/getUser", getAllUsers)//middleware
-router.get("/getUserBy/:id", getUserById)//middleware
-router.put("/deleteUser/:id", deleteUser)//middleware
-router.put("/deleteCategory/:id", deleteCategory)//middleware
-router.put("/deleteModel/:id", deleteModel)//middleware
-router.put("/updateSneaker/:id", updateSneaker)//middleware
-router.post("/createCate", createCategory)//middleware
-router.post("/createModel", createModel)//middleware
-router.post("/createSneaker", createSneaker)//middleware
+router.get("/getUser", ProtectedRoute, getAllUsers)//middleware**+
+//router.get("/getUserBy/:id", ProtectedRoute, getUserById)//middleware----------------------
+router.put("/deleteUser/:id", ProtectedRoute, deleteUser)//middleware**+
+router.put("/deleteCategory/:id", ProtectedRoute, deleteCategory)//middleware**+
+//router.put("/deleteModel/:id", ProtectedRoute, deleteModel)//middleware--------------------
+router.put("/updateSneaker/:id", ProtectedRoute, updateSneaker)//middleware**+
+router.post("/createCate", ProtectedRoute, createCategory)//middleware**+
+router.post("/createModel", ProtectedRoute, createModel)//middleware**+
+router.post("/createSneaker", ProtectedRoute, createSneaker)//middleware**+
 router.get("/getModels", getModels)
 router.get("/getColors", getColors)
 router.get("/materials", getMaterials)
 router.get("/sizes", getSizes)
-router.put("/deleteSneaker/:id", deleteSneaker)//middleware
+router.put("/deleteSneaker/:id",ProtectedRoute, deleteSneaker)//middleware**+
 router.put("/updateUser/:id", switchRole);
 
-router.get("/getOrders", getOrders)//middleware
-router.get("/getOrders/:id", getOrdersById)//middleware
-router.get("/getOrdUser/:id", getOrderByUser)//middleware
-router.post("/createOrder", createOrder)//middleware
-router.put("/updateOrder/:id", updateOrder)//middleware
+router.get("/getOrders", ProtectedRoute, getOrders)//middleware**
+router.get("/getOrders/:id", ProtectedRoute, getOrdersById)//middleware**
+//router.get("/getOrdUser/:id", ProtectedRoute, getOrderByUser)//middleware-------No funcional
+router.post("/createOrder", ProtectedRoute, createOrder)//middleware**+
+router.put("/updateOrder/:id",ProtectedRoute, updateOrder)//middleware**+
 
 
 //users
@@ -72,28 +73,23 @@ router.get("/sneakersall", getSneakersAll);
 router.get("/brands", getBrands);
 router.get("/categories", getCategories);
 router.get("/sneaker/:id", getSneakerId);
-router.get("/getSneakersCart/:id", getSneakersCart);//middleware
-router.post("/addonesneakercart", addOneSneakerCart);//check
-router.post("/addsneakerscart", addSneakersCart);//check
-router.post("/addcart", addCart);//middleware
-router.post("/getcart", getCart);//middleware
-router.post("/deletecart", deleteCart);//middleware
+// router.get("/getSneakersCart/:id",ProtectedRoute, getSneakersCart);//middleware------------
+// router.post("/addonesneakercart", addOneSneakerCart);//check--------------
+// router.post("/addsneakerscart", addSneakersCart);//check---------
+// router.post("/addcart",ProtectedRoute, addCart);//middleware------------------
+// router.post("/getcart",ProtectedRoute, getCart);//middleware------------------
+router.post("/deletecart",ProtectedRoute, deleteCart);//middleware**+
 
 //FirebaseAdmin
-router.put("/updatedDisableUser", updatedDisableUser);//middleware
+router.put("/updatedDisableUser", ProtectedRoute, updatedDisableUser);//middleware**
 
-//counter
-router.post("/counter", createHot);//check
 //Payment
-router.post("/payment", payment);//middleware
-
-//mailer
-
+// router.post("/payment", ProtectedRoute, payment);//middleware----------------
 
 //review
-router.post("/review", addReview);//middleware
+router.post("/review", ProtectedRoute, addReview);//middleware**+
 router.get("/reviews/:id", getReviews);
 
-router.get("/role/:id", getRole);//middleware
+router.get("/role/:id", ProtectedRoute, getRole);//middleware**+
 
 module.exports = router;
