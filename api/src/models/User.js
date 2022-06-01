@@ -21,10 +21,6 @@ module.exports = (sequelize) => {
             type: DataTypes.ENUM('admin', 'client'),
             defaultValue: 'client'
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
         deleted: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

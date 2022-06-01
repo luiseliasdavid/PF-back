@@ -18,7 +18,7 @@
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
-const { conn, Sneaker, Color, Size, Model, Brand, Material, Category, Modelsize, User } = require('./src/db.js');
+const { conn, Hot, Sneaker, Color, Size, Model, Brand, Material, Category, Modelsize, User } = require('./src/db.js');
 const data = require('./data.json');
 const userTest = require('./users.json')
 const { Op } = require('sequelize');
