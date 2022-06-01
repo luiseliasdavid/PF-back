@@ -36,30 +36,34 @@ const updateOrder = require("./functions/updateOrder")
 const getRole = require("./functions/getRole.js");
 const decodeToken = require("../middleware/auth");
 const addDiscount = require("./functions/addDiscount.js");
+const updatedDisableUser = require("./functions/updatedDisableUser.js");
+const createHot = require("./functions/postCounter.js");
+const switchRole = require("./functions/switchRole.js");
 
 const router = Router();
 
 //admin
-router.get("/getUser", getAllUsers)
-router.get("/getUserBy/:id", getUserById)
-router.put("/deleteUser/:id", deleteUser)
-router.put("/deleteCategory/:id", deleteCategory)
-router.put("/deleteModel/:id", deleteModel)
-router.put("/updateSneaker/:id", updateSneaker)
-router.post("/createCate", createCategory)
-router.post("/createModel", createModel)
-router.post("/createSneaker", createSneaker)
+router.get("/getUser", getAllUsers)//middleware
+router.get("/getUserBy/:id", getUserById)//middleware
+router.put("/deleteUser/:id", deleteUser)//middleware
+router.put("/deleteCategory/:id", deleteCategory)//middleware
+router.put("/deleteModel/:id", deleteModel)//middleware
+router.put("/updateSneaker/:id", updateSneaker)//middleware
+router.post("/createCate", createCategory)//middleware
+router.post("/createModel", createModel)//middleware
+router.post("/createSneaker", createSneaker)//middleware
 router.get("/getModels", getModels)
 router.get("/getColors", getColors)
 router.get("/materials", getMaterials)
 router.get("/sizes", getSizes)
-router.put("/deleteSneaker/:id", deleteSneaker)
+router.put("/deleteSneaker/:id", deleteSneaker)//middleware
+router.put("/updateUser/:id", switchRole);
 
-router.get("/getOrders", getOrders)
-router.get("/getOrders/:id", getOrdersById)
-router.get("/getOrdUser/:id", getOrderByUser)
-router.post("/createOrder", createOrder)
-router.put("/updateOrder/:id", updateOrder)
+router.get("/getOrders", getOrders)//middleware
+router.get("/getOrders/:id", getOrdersById)//middleware
+router.get("/getOrdUser/:id", getOrderByUser)//middleware
+router.post("/createOrder", createOrder)//middleware
+router.put("/updateOrder/:id", updateOrder)//middleware
 
 
 //users
@@ -69,24 +73,29 @@ router.get("/sneakersall", getSneakersAll);
 router.get("/brands", getBrands);
 router.get("/categories", getCategories);
 router.get("/sneaker/:id", getSneakerId);
-router.get("/getSneakersCart/:id", getSneakersCart);
-router.post("/addonesneakercart", addOneSneakerCart);
-router.post("/addsneakerscart", addSneakersCart);
-router.post("/addcart", addCart);
-router.post("/getcart", getCart);
-router.post("/deletecart", deleteCart);
+router.get("/getSneakersCart/:id", getSneakersCart);//middleware
+router.post("/addonesneakercart", addOneSneakerCart);//check
+router.post("/addsneakerscart", addSneakersCart);//check
+router.post("/addcart", addCart);//middleware
+router.post("/getcart", getCart);//middleware
+router.post("/deletecart", deleteCart);//middleware
 
+//FirebaseAdmin
+router.put("/updatedDisableUser", updatedDisableUser);//middleware
+
+//counter
+router.post("/counter", createHot);//check
 //Payment
-router.post("/payment", payment);
+router.post("/payment", payment);//middleware
 
 //discount
 router.post("/addDiscount/:id", addDiscount)
 
 
 //review
-router.post("/review", addReview);
+router.post("/review", addReview);//middleware
 router.get("/reviews/:id", getReviews);
 
-router.get("/role/:id", getRole);
+router.get("/role/:id", getRole);//middleware
 
 module.exports = router;

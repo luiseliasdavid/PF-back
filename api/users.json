@@ -1,72 +1,8 @@
-[
+[    
     {
-        "id": "qoWuNj0qJvN0PYeugCZ2FLMpkH53",
-        "name": "esteban",
-        "email": "tecnicoesteban01@gmail.com",
-        "password": "holis",
+        "id": "adminsneakers8",
+        "name": "Admin",
+        "email": "Admin@admin.com",
         "type":"admin"
-    },
-    {
-        "id": "asdsadsadas678678",
-        "name": "Ana paula",
-        "email": "anapaulacortesibarra@gmail.com",
-        "password": "holis",
-        "type":"admin"
-    },
-    {
-        "id": "asdsadwes54",
-        "name": "ulises",
-        "email": "ulises@gmail.com",
-        "password": "holis",
-        "type":"client"
-    },
-    {
-        "id": "asqp5adsadas54",
-        "name": "nico",
-        "email": "ncsala@gmail.com",
-        "password": "holis",
-        "type":"admin"
-    },
-    {
-        "id": "as25hadsadas54",
-        "name": "jesus",
-        "email": "jesus@gmail.com",
-        "password": "holis",
-        "type":"client"
-    },
-    {
-        "id": "asodkfs54",
-        "name": "Andre",
-        "email": "avaldiviach@gmail.com",
-        "password": "holis",
-        "type":"client"
-    },
-    {
-        "id": "dlo00adsadas54",
-        "name": "juan",
-        "email": "juanoriquero@gmail.com",
-        "password": "holis",
-        "type":"admin"
-    },
-    {
-        "id": "as28iedsadas54",
-        "name": "luis",
-        "email": "luis@gmail.com",
-        "password": "holis",
-        "type":"client"
-    },
-    {
-        "id": "asdsadsyyy6s54",
-        "name": "Invalido",
-        "email": "invalido@gmail.com",
-        "password": "holis",
-        "type":"admin"
-    },
-    {
-        "id": "636yesadas54",
-        "name": "mateo",
-        "email": "mateo@gmail.com",
-        "password": "holis",
-        "type":"client"
     }
 ]
