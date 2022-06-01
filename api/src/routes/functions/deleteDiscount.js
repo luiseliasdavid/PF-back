@@ -16,9 +16,11 @@ const deleteDiscount = async (req,res)=>{
     
     const discount = await Discount.findByPk(id)
     if (discount) {
-        restoreD(discount.sneakerId)
-        discount.deleted = !discount.deleted
-        await discount.save()
+        if(discount.deleted === false ) {
+            restoreD(discount.sneakerId)
+            discount.deleted = true
+            await discount.save()
+        }
 
         res.json({msg: `the state of Discount ${discount.id} has been change to disabled = ${discount.deleted}`})
     }else{

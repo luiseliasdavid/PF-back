@@ -47,7 +47,6 @@ const router = Router();
 //admin
 router.get("/getUser", getAllUsers)//middleware
 router.get("/getUserBy/:id", getUserById)//middleware
-router.put("/deleteUser/:id", deleteUser)//middleware
 router.put("/deleteCategory/:id", deleteCategory)//middleware
 router.put("/deleteModel/:id", deleteModel)//middleware
 router.put("/updateSneaker/:id", updateSneaker)//middleware
@@ -83,7 +82,7 @@ router.post("/getcart", getCart);//middleware
 router.post("/deletecart", deleteCart);//middleware
 
 //FirebaseAdmin
-router.put("/updatedDisableUser", updatedDisableUser);//middleware
+router.put("/updatedDisableUser/:id", updatedDisableUser);//middleware
 
 //counter
 router.post("/counter", createHot);//check

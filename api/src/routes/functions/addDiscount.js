@@ -11,8 +11,8 @@ async function restoreD(id, discountId){
     console.log("sin descuento" ,sneaker.discountPrice)
 
     const discount = await Discount.findByPk(discountId)
-    if (discount) {
-        discount.deleted = false
+    if (discount.deleted === false) {
+        discount.deleted = true
         await discount.save()
     }
 }
