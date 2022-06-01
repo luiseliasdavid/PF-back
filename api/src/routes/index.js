@@ -36,6 +36,7 @@ const updateOrder = require("./functions/updateOrder")
 const getRole = require("./functions/getRole.js");
 const decodeToken = require("../middleware/auth");
 const addDiscount = require("./functions/addDiscount.js");
+const OrdersFiltered = require("./functions/OrdersFiltered.js");
 
 const router = Router();
 
@@ -54,6 +55,7 @@ router.get("/getColors", getColors)
 router.get("/materials", getMaterials)
 router.get("/sizes", getSizes)
 router.put("/deleteSneaker/:id", deleteSneaker)
+router.get("/filterOrders", OrdersFiltered)
 
 router.get("/sneakers", getSneakers);
 router.get("/sneakersall", getSneakersAll);

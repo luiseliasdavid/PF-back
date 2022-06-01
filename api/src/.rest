@@ -35,9 +35,21 @@ POST http://localhost:3001/user
 Content-Type: application/json
 
 {
- "name": "ana",
- "email": "ana@gmail.com",
- "password": "asklajsla"
+  "id": 15,
+ "name": "anhhhap",
+ "email": "mateooo@gmail.com",
+ "password": "hasklajsla"
+}
+
+###
+POST http://localhost:3001/user
+Content-Type: application/json
+
+{
+  "id": 11,
+ "name": "mateo",
+ "email": "mateo@gmail.com",
+ "password": "hasklajsla"
 }
 
 ###
@@ -182,14 +194,44 @@ POST http://localhost:3001/createOrder
 Content-Type: application/json
 
 {
-"userId": 9,
-"address": "ana",
+"userId": 15,
+"address": "anavvvbbb",
+"total": 256056565,
+"email": "mateooo@gmail.com",
+"date": "12/95/22"
+}
+
+### 
+POST http://localhost:3001/createOrder
+Content-Type: application/json
+
+{
+"userId": 11,
+"address": "anavvvbbb",
 "total": 256056565,
 "email": "mateo@gmail.com",
 "date": "12/95/22"
 }
 
 ###
+
+
+POST http://localhost:3001/createOrder
+Content-Type: application/json
+
+{
+"userId": 7,
+"address": "anaggg",
+"total": 255,
+"email": "anap@gmail.com",
+"date": "12/95/22"
+}
+
+###
+
+
+
+
 
 GET http://localhost:3001/getOrders
 
@@ -200,5 +242,18 @@ GET http://localhost:3001/getUserBy/2
 ###
 
 GET http://localhost:3001/getOrdUser/9
+
+###
+
+
+GET http://localhost:3001/filterOrders?filter=Pending
+
+###
+
+GET http://localhost:3001/filterOrders?filter=Completed
+
+###
+
+GET http://localhost:3001/filterOrders?filter=InProgress
 
 
