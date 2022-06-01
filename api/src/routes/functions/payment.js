@@ -8,7 +8,6 @@ const stripe = new Stripe(STRIPE_KEY);
 
 const payment= async (req, res) => {
 const { id, amount } = req.body;
- // console.log(id, amount);
     try {
       const payment = await stripe.paymentIntents.create({
         payment_method: id,
@@ -16,7 +15,6 @@ const { id, amount } = req.body;
         currency: 'USD',
         confirm: true
       })
-    //  console.log(payment);
       res.json({ msg: 'Payment made successfully', received: true })
     } catch (e) {
       res.status(404).json({ msg: 'Payment declined', received: false });

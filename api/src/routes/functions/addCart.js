@@ -3,7 +3,6 @@ const { User, Sneaker, Cart } = require('../../db');
 const addCart = async (req, res) => {
 	const { email, productData } = req.body;
 	try {
-		console.log(email)
 		const user = await User.findOne({
 			where: { email },
 		});
@@ -23,7 +22,6 @@ const addCart = async (req, res) => {
 					});
 	
 					if (!existe.length) {
-						console.log('ENTREEE A CREAR');
 						await Cart.create({
 							quantity: product.qty,
 							size: product.size,
@@ -31,7 +29,6 @@ const addCart = async (req, res) => {
 							sneakerId: sneaker.id,
 						});
 					} else {
-						console.log('ENTREEE A ACTUALIZAR');
 						await Cart.update(
 							{ quantity: product.qty },
 							{
@@ -43,7 +40,7 @@ const addCart = async (req, res) => {
 							}
 						);
 					}
-				} finally {
+				} catch {
 					console.log('error interno');
 				}
 			})
@@ -54,7 +51,6 @@ const addCart = async (req, res) => {
 
 		res.json({ message: `user's product's cart ${user.email} updated` });
 	} catch (error) {
-		console.log('Error al agregar al carrito');
 		res.status(500).json({ message: 'Error al agregar al carrito' });
 	}
 };

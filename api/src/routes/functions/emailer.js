@@ -31,7 +31,6 @@ const emailer =  ( email, subject, type ) => {
         if (error) {
             res.status(500).json({ msg: error });
         } else {
-            // console.log('Email sent: ' + info.response);
             res.status(200).json({ msg: info.response });
         }
     });

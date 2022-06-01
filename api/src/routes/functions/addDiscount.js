@@ -8,7 +8,6 @@ async function restoreD(id){
     const sneaker = await Sneaker.findByPk(id)
     sneaker.discountPrice = 0
     sneaker.save()
-    console.log("sin descuento" ,sneaker.discountPrice)
 }
 
 
@@ -30,11 +29,8 @@ const addOneSneakerCart = async (req,res)=>{
     const newPrice = sneaker.price * ((100 - discount) / 100 )
 
     const newDiscount = await Discount.create({sneakerId: id, sneakerModel: sneaker.model.nameModel, percentage: discount, creation: date, expiration: expiration })
-    console.log(sneaker.model.nameModel)
     sneaker.discountPrice = newPrice
     await sneaker.save()
-
-    console.log('con descuento',sneaker.discountPrice)
 
     if (days <= 32 && days > 0) {
         if(hours <= 23){

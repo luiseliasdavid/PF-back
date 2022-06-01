@@ -36,6 +36,9 @@ const updateOrder = require("./functions/updateOrder")
 const getRole = require("./functions/getRole.js");
 const decodeToken = require("../middleware/auth");
 const addDiscount = require("./functions/addDiscount.js");
+const addWishlist = require("./functions/addWishlist.js");
+const getWishlist = require("./functions/getWishlist.js");
+const deleteWishlist = require("./functions/deleteWishlist.js");
 
 const router = Router();
 
@@ -75,6 +78,9 @@ router.post("/addsneakerscart", addSneakersCart);
 router.post("/addcart", addCart);
 router.post("/getcart", getCart);
 router.post("/deletecart", deleteCart);
+router.post("/addwishlist", addWishlist);
+router.post("/getwishlist", getWishlist);
+router.post("/deletewishlist", deleteWishlist);
 
 //Payment
 router.post("/payment", payment);

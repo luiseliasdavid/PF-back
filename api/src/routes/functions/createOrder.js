@@ -11,11 +11,8 @@ async function createOrder(req, res) {
     const user = await User.findOne({where: {email: email}});
   
     if (user) {
-      console.log(date)
       const newOrder = await Order.create({ userId: user.id, address:address, products:products, nameUser:user.nameUser ,total:total, date: date, state: "Pending" });
-      console.log(newOrder)
       emailer(email, `ortder status is`,"Pending"  )
-      console.log("Pending" )
 
       res.status(201).send(newOrder);
       

@@ -13,7 +13,6 @@ const herokuDb = {
   name: DB_NAME || "d8rp7epoiokuee"
 }
 
-
 const sequelize = new Sequelize(`postgres://${herokuDb.user}:${herokuDb.password}@${herokuDb.host}/${herokuDb.name}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false,
@@ -116,6 +115,9 @@ let Cart = sequelize.define('cart', {
 User.belongsToMany(Sneaker, { through: Cart });
 Sneaker.belongsToMany(User, { through: Cart });
 
+User.belongsToMany(Sneaker, { through: 'wishlist', timestamps: false });
+Sneaker.belongsToMany(User, { through: 'wishlist', timestamps: false });
+
 //!Orden Sneaker
 let OrderSneaker = sequelize.define('ordersneaker', {
   quantity: {
@@ -148,7 +150,6 @@ Review.belongsTo(User, { foreignKey: "userId" });
 
 Sneaker.hasMany(Review,{ foreignKey: "sneakerId" });
 Review.belongsTo(Sneaker,{ foreignKey: "sneakerId" });
-
 
 module.exports = {
   Cart,

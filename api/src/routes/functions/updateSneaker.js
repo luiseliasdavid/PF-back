@@ -5,7 +5,6 @@ const { Sneaker, Model, Size } = require("../../db")
 const updateSneaker = async (req, res) => {
   const { id } = req.params
   const props = req.body
-  console.log(props, 'aquiiiii')
   try {
     if (id) {
       const sneaker = await Sneaker.findByPk(id,{
@@ -41,7 +40,6 @@ const updateSneaker = async (req, res) => {
         await model.addSize(siz || created, { through: { stock: n.stock } });
       } )
 
-      console.log(newSizes)
       if (sneaker) {
         res.json({
           msg: "The sneaker has been updated",
