@@ -4,16 +4,21 @@ var dateTime = require('node-datetime');
 
 
 
-async function restoreD(id){
+async function restoreD(id, discountId){
     const sneaker = await Sneaker.findByPk(id)
     sneaker.discountPrice = 0
     sneaker.save()
     console.log("sin descuento" ,sneaker.discountPrice)
+
+    const discount = await Discount.findByPk(discountId)
+    if (discount) {
+        discount.deleted = false
+        await discount.save()
+    }
 }
 
 
-
-const addOneSneakerCart = async (req,res)=>{
+const addDiscount = async (req,res)=>{
     const id = req.params.id
     const{discount, hours, days}=req.body;
     const sneaker = await Sneaker.findByPk(id,{include: { all: true, nested: true }})
@@ -29,29 +34,34 @@ const addOneSneakerCart = async (req,res)=>{
 
     const newPrice = sneaker.price * ((100 - discount) / 100 )
 
-    const newDiscount = await Discount.create({sneakerId: id, sneakerModel: sneaker.model.nameModel, percentage: discount, creation: date, expiration: expiration })
-    console.log(sneaker.model.nameModel)
-    sneaker.discountPrice = newPrice
-    await sneaker.save()
-
-    console.log('con descuento',sneaker.discountPrice)
-
-    if (days <= 32 && days > 0) {
-        if(hours <= 23){
-            cron.schedule(`* * ${hours} ${days} * *`,() => restoreD(id))
-        }else{
-            cron.schedule(`* * * ${days} * *`,() => restoreD(id))
-
-        }
+    
+    if (sneaker.discountPrice > 0) {
+        res.json({msg: `the sneaker have already a discount`})
     }else{
-        if (hours <= 23 && hours > 0) {
-            cron.schedule(`* * ${hours} * * *`,() => restoreD(id))
+        const newDiscount = await Discount.create({sneakerId: id, sneakerModel: sneaker.model.nameModel, percentage: discount, creation: date, expiration: expiration })
+        sneaker.discountPrice = newPrice
+        await sneaker.save()
+
+        console.log('con descuento',sneaker.discountPrice)
+
+        if (days <= 32 && days > 0) {
+            if(hours <= 23){
+                cron.schedule(`* * ${hours} ${days} * *`,() => restoreD(id))
+            }else{
+                cron.schedule(`* * * ${days} * *`,() => restoreD(id, newDiscount.id))
+
+            }
+        }else{
+            if (hours <= 23 && hours > 0) {
+                cron.schedule(`* * ${hours} * * *`,() => restoreD(id))
+            }
         }
+
+
+
+        res.send('Producto agregado')
     }
-
-
-
-    res.send('Producto agregado')
+    
 }
 
-module.exports = addOneSneakerCart;
+module.exports = addDiscount;
