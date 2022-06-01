@@ -39,6 +39,7 @@ const addDiscount = require("./functions/addDiscount.js");
 const updatedDisableUser = require("./functions/updatedDisableUser.js");
 const createHot = require("./functions/postCounter.js");
 const switchRole = require("./functions/switchRole.js");
+const getDiscounts = require("./functions/getDiscounts.js");
 
 const router = Router();
 
@@ -90,6 +91,8 @@ router.post("/payment", payment);//middleware
 
 //discount
 router.post("/addDiscount/:id", addDiscount)
+router.get("/getDiscounts", getDiscounts);
+
 
 
 //review
