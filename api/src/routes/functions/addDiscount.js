@@ -1,6 +1,7 @@
-const {Sneaker, Discount} = require("../../db");
+const {Sneaker, Discount, User} = require("../../db");
 const cron = require('node-cron');
 var dateTime = require('node-datetime');
+const emailer = require('./emailer')
 
 
 
@@ -10,10 +11,10 @@ async function restoreD(id, discountId){
     sneaker.save()
     console.log("sin descuento" ,sneaker.discountPrice)
 
-    const discount = await Discount.findByPk(discountId)
-    if (discount.deleted === false) {
-        discount.deleted = true
-        await discount.save()
+    const d = await Discount.findByPk(discountId)
+    if (d) {
+        d.deleted = true
+        d.save()
     }
 }
 
@@ -34,7 +35,12 @@ const addDiscount = async (req,res)=>{
 
     const newPrice = sneaker.price * ((100 - discount) / 100 )
 
-    
+
+    const users = await User.findAll()
+    const usersEmails = users.map(u => u.email)
+    const emails = usersEmails.join()
+    emailer(emails, `new Discount`,"discount")
+
     if (sneaker.discountPrice > 0) {
         res.json({msg: `the sneaker have already a discount`})
     }else{
@@ -42,18 +48,18 @@ const addDiscount = async (req,res)=>{
         sneaker.discountPrice = newPrice
         await sneaker.save()
 
-        console.log('con descuento',sneaker.discountPrice)
+        console.log('con descuento',sneaker.discountPrice, newDiscount.id)
 
         if (days <= 32 && days > 0) {
             if(hours <= 23){
-                cron.schedule(`* * ${hours} ${days} * *`,() => restoreD(id))
+                cron.schedule(`* * ${hours} ${days} * *`,() => restoreD(id,newDiscount.id))
             }else{
                 cron.schedule(`* * * ${days} * *`,() => restoreD(id, newDiscount.id))
 
             }
         }else{
             if (hours <= 23 && hours > 0) {
-                cron.schedule(`* * ${hours} * * *`,() => restoreD(id))
+                cron.schedule(`* * ${hours} * * *`,() => restoreD(id,newDiscount.id))
             }
         }
 
