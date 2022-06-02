@@ -9,11 +9,7 @@ async function restoreD(id, discountId){
     const sneaker = await Sneaker.findByPk(id)
     sneaker.discountPrice = 0
     sneaker.save()
-<<<<<<< HEAD
     console.log("sin descuento" ,sneaker.discountPrice)
-=======
-}
->>>>>>> 962c1c08699f253abc94123aaf6403503c4224f8
 
     const d = await Discount.findByPk(discountId)
     if (d) {
@@ -40,10 +36,7 @@ const addDiscount = async (req,res)=>{
     const newPrice = sneaker.price * ((100 - discount) / 100 )
 
 
-    const users = await User.findAll()
-    const usersEmails = users.map(u => u.email)
-    const emails = usersEmails.join()
-    emailer(emails, `new Discount`,"discount")
+    
 
     if (sneaker.discountPrice > 0) {
         res.json({msg: `the sneaker have already a discount`})
@@ -51,6 +44,11 @@ const addDiscount = async (req,res)=>{
         const newDiscount = await Discount.create({sneakerId: id, sneakerModel: sneaker.model.nameModel,image:sneaker.image ,percentage: discount, creation: date, expiration: expiration })
         sneaker.discountPrice = newPrice
         await sneaker.save()
+
+        const users = await User.findAll()
+        const usersEmails = users.map(u => u.email)
+        const emails = usersEmails.join()
+        emailer(emails, `new Discount`,"discount",sneaker.image,discount ,sneaker.nameModel, expiration )
 
         console.log('con descuento',sneaker.discountPrice, newDiscount.id)
 
