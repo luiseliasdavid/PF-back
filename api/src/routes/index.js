@@ -42,6 +42,9 @@ const switchRole = require("./functions/switchRole.js");
 const getDiscounts = require("./functions/getDiscounts.js");
 const deleteDiscount = require("./functions/deleteDiscount.js");
 const ProtectedRoute = require("../middleware/auth");
+const addWishlist = require("./functions/addWishlist.js");
+const getWishlist = require("./functions/getWishlist.js");
+const deleteWishlist = require("./functions/deleteWishlist.js");
 
 const router = Router();
 
@@ -82,7 +85,9 @@ router.post("/addsneakerscart", addSneakersCart);//check---------
 router.post("/addcart",ProtectedRoute, addCart);//middleware------------------
 router.post("/getcart",ProtectedRoute, getCart);//middleware------------------
 router.post("/deletecart",ProtectedRoute, deleteCart);//middleware**+
-
+router.post("/addwishlist", addWishlist);
+router.post("/getwishlist", getWishlist);
+router.post("/deletewishlist", deleteWishlist);
 //FirebaseAdmin
 router.put("/updatedDisableUser/:id", ProtectedRoute, updatedDisableUser);//middleware**
 

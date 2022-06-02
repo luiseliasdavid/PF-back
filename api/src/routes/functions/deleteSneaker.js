@@ -9,7 +9,6 @@ const deleteSneaker = async (req, res) => {
       if (!productDelete) {
         res.status(404).send({ msg: "The sneaker does not exist" });
       }
-      console.log(productDelete.deleted)
       const newStateProduct = await productDelete.update({ deleted: (!productDelete.deleted) })
       if (newStateProduct) {
         const show = productDelete.deleted ? "unavailable" : "available"
