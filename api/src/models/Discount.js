@@ -10,6 +10,10 @@ module.exports = (sequelize) => {
         sneakerModel:{
             type: DataTypes.STRING
         },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         percentage:{
             type: DataTypes.FLOAT
         },

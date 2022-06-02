@@ -38,7 +38,7 @@ const addDiscount = async (req,res)=>{
     if (sneaker.discountPrice > 0) {
         res.json({msg: `the sneaker have already a discount`})
     }else{
-        const newDiscount = await Discount.create({sneakerId: id, sneakerModel: sneaker.model.nameModel, percentage: discount, creation: date, expiration: expiration })
+        const newDiscount = await Discount.create({sneakerId: id, sneakerModel: sneaker.model.nameModel,image:sneaker.image ,percentage: discount, creation: date, expiration: expiration })
         sneaker.discountPrice = newPrice
         await sneaker.save()
 
