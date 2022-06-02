@@ -2,28 +2,25 @@ const { User, Sneaker, wishlist } = require('../../db');
 
 const addWishlist = async (req, res) => {
   const { email, id } = req.body;
-  console.log('email',email,' id',id)
   try {
     const user = await User.findOne({
       where: { email },
     });
-    console.log('user ',user);
-    const sneaker = await Sneaker.findOne({
-      where: { id }
-    })
-    console.log('sneaker ',sneaker)
-
-    if (user && sneaker) {
-      const [ obj, boolean ] = await wishlist.findOrCreate({
-        where: {
-          userId: user.id,
-          sneakerId: sneaker.id
-        }
-      });
-      boolean ? res.json({ message: `The record was added successfully`}) : res.json({ message: `The record already exist`});
-    } else {
-      res.json({ message: `user ${email} is a error` })
-    }
+    if(!email) return res.json({ message: `user ${email} is a error` })
+    await Promise.all(id.map(async i => {
+      const sneaker = await Sneaker.findOne({
+        where: { id: i }
+      })
+      if (user && sneaker) {
+        const [obj, boolean] = await wishlist.findOrCreate({
+          where: {
+            userId: user.id,
+            sneakerId: i
+          }
+        });
+      }
+    }))
+    res.json({ message: `The record was added successfully` });
   }
   catch (error) {
     res.status(500).json({ message: error.message });

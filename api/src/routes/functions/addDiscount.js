@@ -64,9 +64,6 @@ const addDiscount = async (req,res)=>{
                 cron.schedule(`* * ${hours} * * *`,() => restoreD(id,newDiscount.id))
             }
         }
-
-
-
         res.send('Producto agregado')
     }
     

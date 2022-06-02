@@ -43,7 +43,7 @@ const getDiscounts = require("./functions/getDiscounts.js");
 const deleteDiscount = require("./functions/deleteDiscount.js");
 const ProtectedRoute = require("../middleware/auth");
 const addWishlist = require("./functions/addWishlist.js");
-const getWishlist = require("./functions/getWishlist.js");
+const getWishlist = require("./functions/getWishList");
 const deleteWishlist = require("./functions/deleteWishlist.js");
 
 const router = Router();
