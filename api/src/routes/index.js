@@ -97,7 +97,7 @@ router.put("/deleteDiscount/:id",ProtectedRoute, deleteDiscount);//middleware
 
 
 //review
-router.post("/review", ProtectedRoute, addReview);//middleware**+
+router.post("/review", addReview);//middleware**+
 router.get("/reviews/:id", getReviews);
 
 router.get("/role/:id", ProtectedRoute, getRole);//middleware**+
