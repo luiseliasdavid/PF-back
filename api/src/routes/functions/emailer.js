@@ -1,46 +1,40 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 const { MAILER_SERVICE, MAILER_USER, MAILER_PASS } = process.env;
-const { purchase } = require('./emailerTypes')
+const { purchase } = require("./emailerTypes");
 
-
-const emailer =  ( email, subject, type ) => {
-
+const emailer = (email, subject, type) => {
+  try {
     var transporter = nodemailer.createTransport({
-
-        service: MAILER_SERVICE,
-        auth: {
-            user: MAILER_USER,
-            pass: MAILER_PASS
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
+      service: MAILER_SERVICE,
+      auth: {
+        user: MAILER_USER,
+        pass: MAILER_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
 
-    const messageToSend = purchase(email, type) ;
-
+    const messageToSend = purchase(email, type);
 
     let mailOptions = {
-        from: MAILER_USER,
-        to: email,
-        subject: subject,
-        html: messageToSend
+      from: MAILER_USER,
+      to: email,
+      subject: subject,
+      html: messageToSend,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            res.status(500).json({ msg: error });
-        } else {
-            // console.log('Email sent: ' + info.response);
-            res.status(200).json({ msg: info.response });
-        }
+      if (error) {
+        res.status(500).json({ msg: error });
+      } else {
+        // console.log('Email sent: ' + info.response);
+        res.status(200).json({ msg: info.response });
+      }
     });
-}
+  } catch (error) {
+    console.log("Error fuction emailer");
+  }
+};
 
-
-
-
-module.exports = emailer 
-
-
-
+module.exports = emailer;

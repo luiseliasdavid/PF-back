@@ -1,9 +1,13 @@
 const { Discount } = require("../../db");
 
 const getDiscounts = async (req, res) => {
-  const discounts = await Discount.findAll();
-  console.log(discounts)
-  res.json(discounts);
-}
+  try {
+    const discounts = await Discount.findAll();
+    console.log(discounts);
+    res.json(discounts);
+  } catch (error) {
+    console.log("Error fuction discounts");
+  }
+};
 
 module.exports = getDiscounts;

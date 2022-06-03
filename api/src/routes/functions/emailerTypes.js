@@ -1,5 +1,5 @@
-
-function purchase(user, type) {
+try {
+  function purchase(user, type) {
     return `<div>
             <a style="width: 20rem" href="https://imgur.com/GDmACyN"><img src="https://i.imgur.com/GDmACyN.png" title="source: imgur.com" /></a>
             <div style="display:block;">
@@ -15,8 +15,12 @@ function purchase(user, type) {
             <div style="display:flex; justify-content:flex-end">
                 <p>Arcane eComerce</p>
             </div>
-        </div>`
+        </div>`;
+  }
+} catch (error) {
+  console.log("Error fuction purchase");
 }
+
 module.exports = {
-    purchase
+  purchase,
 };

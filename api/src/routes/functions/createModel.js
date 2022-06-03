@@ -1,19 +1,18 @@
-const { Sneaker, Material, Model, Brand, Size, Category } = require("../../db")
+const { Sneaker, Material, Model, Brand, Size, Category } = require("../../db");
 
 const createModel = async (req, res) => {
-  const data = req.body
-
-  const [brand, createdBrand] = await Brand.findOrCreate({
-    where: { nameBrand: data.brand },
-  });
-  const [material, createdMaterial] = await Material.findOrCreate({
-    where: { nameMaterial: data.material || 'none' },
-  });
-
-  const mat = material.toJSON() || createdMaterial.toJSON();
-  const bra = brand.toJSON() || createdBrand.toJSON();
-
   try {
+    const data = req.body;
+    const [brand, createdBrand] = await Brand.findOrCreate({
+      where: { nameBrand: data.brand },
+    });
+    const [material, createdMaterial] = await Material.findOrCreate({
+      where: { nameMaterial: data.material || "none" },
+    });
+
+    const mat = material.toJSON() || createdMaterial.toJSON();
+    const bra = brand.toJSON() || createdBrand.toJSON();
+
     const model = await Model.create({
       nameModel: data.name,
       description: data.description,
@@ -35,14 +34,15 @@ const createModel = async (req, res) => {
       await model.addSize(siz || created, { through: { stock: size.stock } });
     });
 
-    res.json({ msg: `the model ${model.nameModel} has been created`, model: model })
-
+    res.json({
+      msg: `the model ${model.nameModel} has been created`,
+      model: model,
+    });
   } catch (error) {
-    res.json({ msg: error })
+    console.log("Error fuction createModel");
+    res.json({ msg: error });
   }
-
-
-}
+};
 
 module.exports = createModel;
 
@@ -50,4 +50,4 @@ module.exports = createModel;
 // sizes,
 // categories
 
-// brand, sizes, categories 
+// brand, sizes, categories

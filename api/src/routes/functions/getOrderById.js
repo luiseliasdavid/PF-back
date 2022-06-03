@@ -1,20 +1,18 @@
-const { Order } = require("../../db")
+const { Order } = require("../../db");
 
 const getOrderById = async (req, res) => {
-
-  const { id } = req.params
-
-  if (id) {
-    try {
-      const order = await Order.findByPk(id)
-      res.send(order)
-    } catch (error) {
-      res.status(404).send(error)
+  try {
+    const { id } = req.params;
+    if (id) {
+      const order = await Order.findByPk(id);
+      res.send(order);
+    } else {
+      res.status(404).send(error);
     }
-  } else {
-    res.status(404).send(error)
+  } catch (error) {
+    res.status(404).send(error);
+    console.log("Error fuction getOrderById");
   }
+};
 
-}
-
-module.exports = getOrderById
+module.exports = getOrderById;

@@ -1,9 +1,12 @@
-const { Order } = require("../../db")
+const { Order } = require("../../db");
 
 const getOrders = async (req, res) => {
-  const orders = await Order.findAll()
-  res.send(orders)
-
-}
+  try {
+    const orders = await Order.findAll();
+    res.send(orders);
+  } catch (error) {
+    console.log("Error fuction getOrders");
+  }
+};
 
 module.exports = getOrders;
