@@ -9,8 +9,12 @@ module.exports = (sequelize) => {
             defaultValue: 'Pending',
             allowNull: false
         },
+        nameUser: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         userId: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         address: {
@@ -22,7 +26,7 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         products: {
-            type: DataTypes.ARRAY(DataTypes.STRING)
+            type: DataTypes.ARRAY(DataTypes.JSON)
         },
         date: {
             type: DataTypes.STRING,

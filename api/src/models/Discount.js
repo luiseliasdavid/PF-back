@@ -1,31 +1,34 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('user', {
+    sequelize.define('discount', {
         // Model attributes are defined here
-        id:{
+        sneakerId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        sneakerModel:{
+            type: DataTypes.STRING
+        },
+        image: {
             type: DataTypes.STRING,
-            primaryKey: true,
             allowNull: false
         },
-        nameUser: {
-            type: DataTypes.STRING,
-            allowNull: false
+        percentage:{
+            type: DataTypes.FLOAT
         },
-        email: {
-            type: DataTypes.STRING,
-            unique: true,
-            allowNull: false
+        creation: {
+            type: DataTypes.STRING
         },
-        typeUser: {
-            type: DataTypes.ENUM('admin', 'client'),
-            defaultValue: 'client'
+        expiration: {
+            type: DataTypes.STRING
         },
         deleted: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false,
         }
+
     }, {
         timestamps: false
     });

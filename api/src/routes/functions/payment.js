@@ -15,10 +15,9 @@ const { id, amount } = req.body;
         currency: 'USD',
         confirm: true
       })
-      console.log(payment);
       res.json({ msg: 'Payment made successfully', received: true })
     } catch (e) {
-      res.json({ msg: 'Payment declined', received: false });
+      res.status(404).json({ msg: 'Payment declined', received: false });
     }
 }
 

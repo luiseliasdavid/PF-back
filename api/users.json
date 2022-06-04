@@ -1,56 +1,8 @@
-[
+[    
     {
-        "name": "esteban",
-        "email": "esteban@gmail.com",
-        "password": "holis",
+        "id": "adminsneakers8",
+        "name": "Admin",
+        "email": "Admin@admin.com",
         "type":"admin"
-    },
-    {
-        "name": "ulises",
-        "email": "ulises@gmail.com",
-        "password": "holis",
-        "type":"client"
-    },
-    {
-        "name": "nico",
-        "email": "nico@gmail.com",
-        "password": "holis",
-        "type":"admin"
-    },
-    {
-        "name": "jesus",
-        "email": "jesus@gmail.com",
-        "password": "holis",
-        "type":"client"
-    },
-    {
-        "name": "Andre",
-        "email": "andre@gmail.com",
-        "password": "holis",
-        "type":"client"
-    },
-    {
-        "name": "juan",
-        "email": "juan@gmail.com",
-        "password": "holis",
-        "type":"admin"
-    },
-    {
-        "name": "luis",
-        "email": "luis@gmail.com",
-        "password": "holis",
-        "type":"client"
-    },
-    {
-        "name": "Invalido",
-        "email": "invalido@gmail.com",
-        "password": "holis",
-        "type":"admin"
-    },
-    {
-        "name": "mateo",
-        "email": "mateo@gmail.com",
-        "password": "holis",
-        "type":"client"
     }
 ]

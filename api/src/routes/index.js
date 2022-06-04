@@ -1,7 +1,9 @@
 const { Router } = require("express");
-
 const addOneSneakerCart = require("./functions/addOneSneakerCart.js");
 const addSneakersCart = require("./functions/addSneakersCart.js");
+const addCart = require("./functions/addCart.js");
+const getCart = require("./functions/getCart.js");
+const deleteCart = require("./functions/deleteCart.js");
 const createUser = require("./functions/createUser.js");
 const getBrands = require("./functions/getBrands.js");
 const getCategories = require("./functions/getCategories.js");
@@ -28,30 +30,47 @@ const getOrders = require("./functions/getOrders.js")
 const getOrdersById = require("./functions/getOrderById");
 const getUserById = require("./functions/getUserById.js");
 const getOrderByUser = require("./functions/getOrderByUser.js");
+const addReview = require("./functions/addReview.js");
+const getReviews = require("./functions/getReview.js");
+const updateOrder = require("./functions/updateOrder")
+const getRole = require("./functions/getRole.js");
+const decodeToken = require("../middleware/auth");
+const addDiscount = require("./functions/addDiscount.js");
+const updatedDisableUser = require("./functions/updatedDisableUser.js");
+const createHot = require("./functions/postCounter.js");
+const switchRole = require("./functions/switchRole.js");
+const getDiscounts = require("./functions/getDiscounts.js");
+const deleteDiscount = require("./functions/deleteDiscount.js");
+const ProtectedRoute = require("../middleware/auth");
+const addWishlist = require("./functions/addWishlist.js");
+const getWishlist = require("./functions/getWishList");
+const deleteWishlist = require("./functions/deleteWishlist.js");
 
 const router = Router();
 
-
 //admin
-router.get("/getUser", getAllUsers)
-router.get("/getUserBy/:id", getUserById)
-router.put("/deleteUser/:id", deleteUser)
-router.put("/deleteCategory/:id", deleteCategory)
-router.put("/deleteModel/:id", deleteModel)
-router.put("/updateSneaker/:id", updateSneaker)
-router.post("/createCate", createCategory)
-router.post("/createModel", createModel)
-router.post("/createSneaker", createSneaker)
+router.get("/getUser", ProtectedRoute, getAllUsers)//middleware**+
+router.get("/getUserBy/:id", ProtectedRoute, getUserById)//middleware----------------------
+router.put("/deleteUser/:id", ProtectedRoute, deleteUser)//middleware**+
+router.put("/deleteCategory/:id", ProtectedRoute, deleteCategory)//middleware**+
+router.put("/deleteModel/:id", ProtectedRoute, deleteModel)//middleware--------------------
+router.put("/updateSneaker/:id", ProtectedRoute, updateSneaker)//middleware**+
+router.post("/createCate", ProtectedRoute, createCategory)//middleware**+
+router.post("/createModel", ProtectedRoute, createModel)//middleware**+
+router.post("/createSneaker", ProtectedRoute, createSneaker)//middleware**+
 router.get("/getModels", getModels)
 router.get("/getColors", getColors)
 router.get("/materials", getMaterials)
 router.get("/sizes", getSizes)
-router.put("/deleteSneaker/:id", deleteSneaker)
+router.put("/deleteSneaker/:id",ProtectedRoute, deleteSneaker)//middleware**+
+router.put("/updateUser/:id", switchRole);
 
-router.get("/getOrders", getOrders)
-router.get("/getOrders/:id", getOrdersById)
-router.get("/getOrdUser/:id", getOrderByUser)
-router.post("/createOrder", createOrder)
+router.get("/getOrders", ProtectedRoute, getOrders)//middleware**
+router.get("/getOrders/:id", ProtectedRoute, getOrdersById)//middleware**
+router.get("/getOrdUser/:id", getOrderByUser)//middleware-------No funcional
+router.post("/createOrder", ProtectedRoute, createOrder)//middleware**+
+router.put("/updateOrder/:id",ProtectedRoute, updateOrder)//middleware**+
+
 
 //users
 router.post("/user", createUser);
@@ -60,13 +79,32 @@ router.get("/sneakersall", getSneakersAll);
 router.get("/brands", getBrands);
 router.get("/categories", getCategories);
 router.get("/sneaker/:id", getSneakerId);
-router.get("/getSneakersCart/:id", getSneakersCart);
-router.post("/addonesneakercart", addOneSneakerCart);
-router.post("/addsneakerscart", addSneakersCart);
+router.get("/getSneakersCart/:id",ProtectedRoute, getSneakersCart);//middleware------------
+router.post("/addonesneakercart", addOneSneakerCart);//check--------------
+router.post("/addsneakerscart", addSneakersCart);//check---------
+router.post("/addcart",ProtectedRoute, addCart);//middleware------------------
+router.post("/getcart",ProtectedRoute, getCart);//middleware------------------
+router.post("/deletecart",ProtectedRoute, deleteCart);//middleware**+
+router.post("/addwishlist", addWishlist);
+router.post("/getwishlist", getWishlist);
+router.post("/deletewishlist", deleteWishlist);
+//FirebaseAdmin
+router.put("/updatedDisableUser/:id", ProtectedRoute, updatedDisableUser);//middleware**
 
 //Payment
-router.post("/payment", payment);
+router.post("/payment", payment);//middleware
+
+//discount
+router.post("/addDiscount/:id", addDiscount)
+router.get("/getDiscounts", getDiscounts);
+router.put("/deleteDiscount/:id",ProtectedRoute, deleteDiscount);//middleware
 
 
+
+//review
+router.post("/review", addReview);//middleware**+
+router.get("/reviews/:id", getReviews);
+
+router.get("/role/:id", ProtectedRoute, getRole);//middleware**+
 
 module.exports = router;
