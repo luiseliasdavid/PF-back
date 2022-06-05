@@ -1,7 +1,6 @@
 const admin = require('../config/firebase-config');
 
 const ProtectedRoute = async (req, res, next) => {
-    console.log(req.headers)
     const token = req.headers.authorization?.split(' ')[1];
     try {
         const decodeValue = await admin.auth().verifyIdToken(token);

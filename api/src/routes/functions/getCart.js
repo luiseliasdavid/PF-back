@@ -2,6 +2,7 @@ const { User, Sneaker, Cart } = require('../../db');
 
 const getCart = async (req, res) => {
   const { email } = req.body;
+  console.log("VINO EMAIL getCart?", email)
   try {
     const user = await User.findOne({
       where: { email: email },
@@ -37,31 +38,9 @@ const getCart = async (req, res) => {
 
     res.json(all);
   } catch (error) {
-    res.status(500).json({ message: 'Error al agregar al carrito' });
+    console.log(error);
   }
 };
 
 module.exports = getCart;
 
-/* const all = await Sneaker.findAll({
-  where: {
-    id: sneakerId
-  },
-  include: { all: true, nested: true }
-})
-  .then(data => data.map((sneaker, i) => 
-  ({
-      sneakerId: sneaker.id,
-      name: sneaker.model.nameModel,
-      brand: sneaker.model.brand.nameBrand,
-      categories: sneaker.model.categories.map(category => category.nameCategory),
-      price: sneaker.price,
-      description: sneaker.model.description,
-      size: cart[i].size,
-      max: sneaker.model.sizes.filter(({ numberSize }) => numberSize === cart[i].size).stock,
-      qty: cart[i].quantity,
-      image: sneaker.image,
-      wishlisted: false,
-    })
-  )
-  ); */

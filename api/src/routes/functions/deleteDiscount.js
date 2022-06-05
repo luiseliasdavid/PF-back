@@ -6,7 +6,6 @@ async function restoreD(id){
     const sneaker = await Sneaker.findByPk(id)
     sneaker.discountPrice = 0
     sneaker.save()
-    console.log("sin descuento" ,sneaker.discountPrice)
 }
 
 

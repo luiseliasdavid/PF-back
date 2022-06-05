@@ -2,6 +2,7 @@ const { User, Sneaker, Cart } = require('../../db');
 
 const addCart = async (req, res) => {
 	const { email, productData } = req.body;
+  console.log("VINO EMAIL?", email)
 	try {
 		const user = await User.findOne({
 			where: { email },
@@ -48,9 +49,9 @@ const addCart = async (req, res) => {
 				console.log('error interno');
 			}
 		});
-		res.json({ message: `user's product's cart ${user.email} updated` });
+		res.json({ message: `user's product's cart updated` });
 	} catch (error) {
-		res.status(500).json({ message: 'Error al agregar al carrito' });
+		console.log(error);
 	}
 };
 

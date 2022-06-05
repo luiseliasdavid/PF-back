@@ -24,7 +24,7 @@ const userTest = require('./users.json')
 const { Op } = require('sequelize');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
 
 	//!Llenando base de datos, con el archivo data.json.
 
@@ -109,10 +109,10 @@ conn.sync({ force: true }).then(async () => {
 	};
 
 	//llendado user prueba mientras bajan de firebas
-	for await (let u of userTest) {
+	// for await (let u of userTest) {
 
-		await User.create({id:u.id, nameUser: u.name, email: u.email, typeUser: u.type, password: u.password })
-	};
+	// 	await User.create({id:u.id, nameUser: u.name, email: u.email, typeUser: u.type, password: u.password })
+	// };
 	const port = process.env.PORT || 3001;
 
 	server.listen(port, () => {

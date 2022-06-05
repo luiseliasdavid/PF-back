@@ -2,7 +2,7 @@
     {
         "brand": "Nike",
         "model": "Air Max Anator",
-        "color": "pink",
+        "color": "brown",
         "sizes": [
             {
                 "size": 35.5,
@@ -16,42 +16,41 @@
         "material": "synthetic",
         "description": "shoes to play soccer",
         "stock": 5,
-        "price": 75,
-        "image": "https://imgur.com/W7WjU0p.png",
+        "price": 280,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_855096-MLA49396621168_032022-O.webp",
         "category": [
-            "soccer"
-        ]
-    }
-    ,
-    {
-        "brand": "Nike",
-        "model": "Air Max 270",
-        "color": "blue",
-        "sizes": [
-            {
-                "size": 38.5,
-                "stock": 5
-            },
-            {
-                "size": 39.5,
-                "stock": 7
-            }
-        ],
-        "material": "cloth",
-        "description": "An amazing shoe for you",
-        "stock": 8,
-        "price": 210,
-        "image": "https://imgur.com/NQqu74o.png",
-        "category": [
+            "soccer",
             "running"
         ]
     },
-    
-    
     {
         "brand": "Nike",
-        "model": "Habanero",
-        "color": "yellow",
+        "model": "Air Max Dia",
+        "color": "brown",
+        "sizes": [
+            {
+                "size": 35.5,
+                "stock": 12
+            },
+            {
+                "size": 25.5,
+                "stock": 5
+            }
+        ],
+        "material": "synthetic",
+        "description": "shoes to play soccer",
+        "stock": 5,
+        "price": 290,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_992665-MLA47575298294_092021-O.webp",
+        "category": [
+            "soccer",
+            "running"
+        ]
+    },
+    {
+        "brand": "Nike",
+        "model": "Air Max Xxxi",
+        "color": "brown",
         "sizes": [
             {
                 "size": 35.5,
@@ -66,7 +65,7 @@
         "description": "shoes to play soccer",
         "stock": 6,
         "price": 10,
-        "image": "https://imgur.com/pCo12d7.png",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_644088-MLA49817825268_042022-W.webp",
         "category": [
             "soccer",
             "running"
@@ -74,8 +73,8 @@
     },
     {
         "brand": "Nike",
-        "model": "Air Jodan One",
-        "color": "purple",
+        "model": "Nike Day II",
+        "color": "red",
         "sizes": [
             {
                 "size": 45.5,
@@ -89,39 +88,16 @@
         "material": "cloth",
         "description": "shoes to play backetball",
         "stock": 10,
-        "price": 110,
-        "image": "https://imgur.com/Z6U9iS2.png",
+        "price": 500,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_635143-MLA49684070123_042022-O.webp",
         "category": [
-            "basquetball",
+            "urban",
             "street"
         ]
     },
     {
-        "brand": "Adidas",
-        "model": "Dragon Ball'",
-        "color": "orange",
-        "sizes": [
-            {
-                "size": 15.5,
-                "stock": 3
-            },
-            {
-                "size": 33.5,
-                "stock": 2
-            }
-        ],
-        "material": "Leather",
-        "description": "An amazing shoe inspired in Goku ",
-        "stock": 20,
-        "price": 199,
-        "image": "https://imgur.com/LorpQhb.png",
-        "category": [
-            "lifestyle"
-        ]
-    },
-    {
-        "brand": "Reebok",
-        "model": "Hype Beast'",
+        "brand": "Champion",
+        "model": "Rally Pro 'Black'",
         "color": "black",
         "sizes": [
             {
@@ -134,18 +110,18 @@
             }
         ],
         "material": "Leather",
-        "description": "Reebok comes the Rally Pro in a black and white colorway. ",
+        "description": "Champion comes the Rally Pro in a black and white colorway. ",
         "stock": 20,
-        "price": 120,
-        "image": "https://imgur.com/DMUIbpK.png",
+        "price": 10000,
+        "image": "https://image.goat.com/375/attachments/product_template_pictures/images/015/567/335/original/CM100018M.png.png",
         "category": [
             "lifestyle"
         ]
     },
     {
-        "brand": "Adidas",
+        "brand": "Champion",
         "model": "Black 93'",
-        "color": "black",
+        "color": "white",
         "sizes": [
             {
                 "size": 15.5,
@@ -157,10 +133,10 @@
             }
         ],
         "material": "Leather",
-        "description": "An amazing shoe made in Adidas factory ",
+        "description": "Champion white sneaker with blue logo ",
         "stock": 20,
-        "price": 65,
-        "image": "https://imgur.com/tZCUuaa.png",
+        "price": 5000,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_936482-MLA45688022376_042021-O.webp",
         "category": [
             "lifestyle"
         ]
@@ -182,8 +158,8 @@
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
-        "price": 125,
-        "image": "https://imgur.com/F6nMMhr.png",
+        "price": 6000,
+        "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
         "category": [
             "skateboarding"
         ]
@@ -191,7 +167,7 @@
     {
         "brand": "Vans",
         "model": "Sk8 Classic",
-        "color": "green",
+        "color": "blue",
         "sizes": [
             {
                 "size": 32.5,
@@ -205,15 +181,15 @@
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
-        "price": 75,
-        "image": "https://imgur.com/C5KZvn1.png",
+        "price": 6000,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_897755-MLA46924321684_072021-O.webp",
         "category": [
             "skateboarding"
         ]
     },
     {
         "brand": "Vans",
-        "model": "Old Skool 'Yacht Club II'",
+        "model": "Old Skool 'Yacht Club'",
         "color": "blue",
         "sizes": [
             {
@@ -228,40 +204,16 @@
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
-        "price": 145,
-        "image": "https://imgur.com/JKeBphM.png",
+        "price": 6000,
+        "image": "https://image.goat.com/750/attachments/product_template_pictures/images/011/051/956/original/335725_00.png.png",
         "category": [
             "skateboarding",
             "urban"
         ]
     },
     {
-        "brand": "Nike",
-        "model": "Air Max Dia",
-        "color": "brown",
-        "sizes": [
-            {
-                "size": 35.5,
-                "stock": 12
-            },
-            {
-                "size": 25.5,
-                "stock": 5
-            }
-        ],
-        "material": "synthetic",
-        "description": "shoes to play soccer",
-        "stock": 5,
-        "price": 99,
-        "image": "https://imgur.com/XQOhFGr.png",
-        "category": [
-            "soccer",
-            "running"
-        ]
-    },
-    {
         "brand": "Vans",
-        "model": "Bee",
+        "model": "Old Skool 'Amarillo'",
         "color": "yellow",
         "sizes": [
             {
@@ -276,15 +228,15 @@
         "material": "cloth",
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
-        "price": 95,
-        "image": "https://imgur.com/pEmy8cA.png",
+        "price": 6000,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_910995-MLA43237716470_082020-W.webp",
         "category": [
             "skateboarding"
         ]
     },
     {
-        "brand": "Puma",
-        "model": "St Activate",
+        "brand": "Vans",
+        "model": "Skull Zass",
         "color": "blue",
         "sizes": [
             {
@@ -300,15 +252,15 @@
         "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
         "price": 220,
-        "image": "https://imgur.com/loJEQqk.png",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_924559-MLA49474801033_032022-W.webp",
         "category": [
             "skateboarding"
         ]
     },
     {
-        "brand": "Puma",
-        "model": "Toys Rx Factory'",
-        "color": "black",
+        "brand": "Vans",
+        "model": "Dreams'",
+        "color": "yellow",
         "sizes": [
             {
                 "size": 37.5,
@@ -320,19 +272,19 @@
             }
         ],
         "material": "cloth",
-        "description": "A shoe to bare the iconic sidestripe",
+        "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
-        "price": 170,
-        "image": "https://imgur.com/23eXk3X.png",
+        "price": 220,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_799027-MLA48240497614_112021-W.webp",
         "category": [
             
             "running"
         ]
     },
     {
-        "brand": "Adidas",
-        "model": "Colors Two",
-        "color": "red",
+        "brand": "DC",
+        "model": "Big Buey",
+        "color": "black",
         "sizes": [
             {
                 "size": 37.5,
@@ -344,17 +296,17 @@
             }
         ],
         "material": "cloth",
-        "description": "A shoe full of colors",
+        "description": "Dc black sneakers with white logo",
         "stock": 8,
-        "price": 120,
-        "image": "https://imgur.com/E1MQ48u.png",
+        "price": 180,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_801847-MLA48321932512_112021-O.webp",
         "category": [
             "skateboarding"
         ]
     },
     {
-        "brand": "Adidas",
-        "model": "Colors Two",
+        "brand": "DC",
+        "model": "Tx pink",
         "color": "pink",
         "sizes": [
             {
@@ -369,16 +321,16 @@
         "material": "cloth",
         "description": "Dc pink sneakers",
         "stock": 8,
-        "price": 130,
-        "image": "https://imgur.com/E1MQ48u.png",
+        "price": 190,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_839367-MLA48065274364_102021-O.webp",
         "category": [
             "skateboarding"
         ]
     },
     {
-        "brand": "Asics",
-        "model": "Oasis ",
-        "color": "white",
+        "brand": "Puma",
+        "model": "Future Rider Twofold ",
+        "color": "blue",
         "sizes": [
             {
                 "size": 37.5,
@@ -390,16 +342,16 @@
             }
         ],
         "material": "cloth",
-        "description": "Multi-colors asics sneaker",
+        "description": "Multi-colors puma sneaker",
         "stock": 8,
-        "price": 180,
-        "image": "https://imgur.com/D6KI1ps.png",
+        "price": 600,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_743911-MLA49665554411_042022-O.webp",
         "category": [
-            "running"
+            "urban"
         ]
     },
     {
-        "brand": "Asics",
+        "brand": "Puma",
         "model": "Future Z",
         "color": "orange",
         "sizes": [
@@ -415,15 +367,15 @@
         "material": "cloth",
         "description": "Orange and black soccer sneaker",
         "stock": 8,
-        "price": 210,
-        "image": "https://imgur.com/WAGGKtw.png",
+        "price": 800,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_802886-MLA49776625549_042022-O.webp",
         "category": [
             "soccer"
         ]
     },
     {
-        "brand": "Nike",
-        "model": "Lockdown 5",
+        "brand": "Puma",
+        "model": "Flyer runner",
         "color": "red",
         "sizes": [
             {
@@ -436,229 +388,36 @@
             }
         ],
         "material": "cloth",
-        "description": "Red running sneaker with white Under Armour logo",
+        "description": "Red running sneaker with white puma logo",
         "stock": 8,
-        "price": 340,
-        "image": "https://imgur.com/OzZ5FU6.png",
+        "price": 900,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_888530-MLA48316980378_112021-O.webp",
         "category": [
             "running"
         ]
     }
     ,
     {
-        "brand": "Nike",
-        "model": "Air Max Black",
-        "color": "black",
-        "sizes": [
-            {
-                "size": 38.5,
-                "stock": 5
-            },
-            {
-                "size": 39.5,
-                "stock": 7
-            }
-        ],
-        "material": "cloth",
-        "description": "Red running sneaker with white Under Armour logo",
-        "stock": 8,
-        "price": 340,
-        "image": "https://imgur.com/lSCZkTX.png",
-        "category": [
-            "running"
-        ]
-    }
-    ,
-    {
-        "brand": "Puma",
-        "model": "Basquet",
-        "color": "red",
-        "sizes": [
-            {
-                "size": 38.5,
-                "stock": 5
-            },
-            {
-                "size": 39.5,
-                "stock": 7
-            }
-        ],
-        "material": "cloth",
-        "description": "Red running sneaker with white ",
-        "stock": 8,
-        "price": 80,
-        "image": "https://imgur.com/pYgyybI.png",
-        "category": [
-            "running"
-        ]
-    }
-    ,
-    {
-        "brand": "Salomon",
-        "model": "Trail",
-        "color": "orange",
-        "sizes": [
-            {
-                "size": 38.5,
-                "stock": 5
-            },
-            {
-                "size": 39.5,
-                "stock": 7
-            }
-        ],
-        "material": "cloth",
-        "description": "The best brand in trekking",
-        "stock": 8,
-        "price": 70,
-        "image": "https://imgur.com/P8w9njb.png",
-        "category": [
-            "trekking"
-        ]
-    }
-    ,
-    {
-        "brand": "Adidas",
-        "model": "Forum Mid",
-        "color": "white",
-        "sizes": [
-            {
-                "size": 38.5,
-                "stock": 5
-            },
-            {
-                "size": 39.5,
-                "stock": 7
-            }
-        ],
-        "material": "cloth",
-        "description": "The best brand in trekking",
-        "stock": 8,
-        "price": 140,
-        "image": "https://imgur.com/Gc8hRP5.png",
-        "category": [
-            "trekking"
-        ]
-    }
-    ,
-    {
-        "brand": "Adidas",
-        "model": "Classics",
+        "brand": "Vans",
+        "model": "Navis's'",
         "color": "blue",
         "sizes": [
             {
-                "size": 38.5,
+                "size": 37.5,
                 "stock": 5
             },
             {
-                "size": 39.5,
+                "size": 55.5,
                 "stock": 7
             }
         ],
         "material": "cloth",
-        "description": "The best bet from adidas",
+        "description": "he Vans classic skate shoe and first to bare the iconic sidestripe",
         "stock": 8,
-        "price": 150,
-        "image": "https://imgur.com/YRVGVpt.png",
+        "price": 220,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_767928-MLA48575298277_122021-O.webp",
         "category": [
-            "basquetball"
-        ]
-    }
-    ,
-    {
-        "brand": "Nike",
-        "model": "Runner One",
-        "color": "blue",
-        "sizes": [
-            {
-                "size": 38.5,
-                "stock": 5
-            },
-            {
-                "size": 39.5,
-                "stock": 7
-            }
-        ],
-        "material": "cloth",
-        "description": "An amazing shoe for you",
-        "stock": 8,
-        "price": 130,
-        "image": "https://imgur.com/oI6D7ma.png",
-        "category": [
-            "running"
-        ]
-    }
-    ,
-    {
-        "brand": "Nike",
-        "model": "Basquetball Cartoon",
-        "color": "purple",
-        "sizes": [
-            {
-                "size": 38.5,
-                "stock": 5
-            },
-            {
-                "size": 39.5,
-                "stock": 7
-            }
-        ],
-        "material": "cloth",
-        "description": "An amazing shoe for you",
-        "stock": 8,
-        "price": 160,
-        "image": "https://imgur.com/jD8LSux.png",
-        "category": [
-            "basquetball"
-        ]
-    }
-    
-    ,
-    {
-        "brand": "Puma",
-        "model": "Rs Core",
-        "color": "blue",
-        "sizes": [
-            {
-                "size": 38.5,
-                "stock": 5
-            },
-            {
-                "size": 39.5,
-                "stock": 7
-            }
-        ],
-        "material": "cloth",
-        "description": "An amazing shoe for you",
-        "stock": 8,
-        "price": 180,
-        "image": "https://imgur.com/7h18ozs.png",
-        "category": [
-            "running"
-        ]
-    }
-    ,
-    {
-        "brand": "Adidas",
-        "model": "Nmd Xr 1",
-        "color": "blue",
-        "sizes": [
-            {
-                "size": 38.5,
-                "stock": 5
-            },
-            {
-                "size": 39.5,
-                "stock": 7
-            }
-        ],
-        "material": "cloth",
-        "description": "An amazing shoe for you",
-        "stock": 8,
-        "price": 160,
-        "image": "https://imgur.com/4xmZmOe.png",
-        "category": [
-            "running"
+                "lifestyle"
         ]
     }
 ]

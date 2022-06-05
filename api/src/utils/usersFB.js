@@ -1,7 +1,6 @@
 const admin = require('../config/firebase-config'); 
 const listAllUsers = (nextPageToken) => {
   // List batch of users, 1000 at a time.
-  console.log("si")
     // admin.auth()
     //   .listUsers(1, nextPageToken)
     //   .then((listUsersResult) => {
